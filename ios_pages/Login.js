@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {View, Text, TextInput, StyleSheet, Button, Alert, TouchableHighlight, Image} from 'react-native';
 import NavBar from './components/NavBar';
+import Main from './Main';
 //登录接口
 const LOGIN_URL = 'http://localhost:3000/account/login';
 //图片地址
@@ -18,12 +19,6 @@ const PIC_URL = 'http://school.coolmoresever.com/images/pic.jpeg';
 // }
 
 export default class Login extends Component {
-    // static propTypes = {
-    // title: PropTypes.string.isRequired,
-    // onForward: PropTypes.func.isRequired,
-    // onBack: PropTypes.func.isRequired,
-    // }
-
 
     constructor(props) {
         super(props);
@@ -32,6 +27,7 @@ export default class Login extends Component {
             password: ''
         };
     }
+
 
     checkInput = () => {
         if (this.state.account == '' || this.state.password == '') {
@@ -62,6 +58,13 @@ export default class Login extends Component {
                     //TODO
                     //登录成功
                     Alert.alert(responseData.info);
+                    this.props.navigator.push({
+                        name: '主页',
+                        component: Main,
+                        params: {
+                            account: this.state.account,
+                        }
+                    })
                     return;
                 }
                 //登录失败

@@ -1,38 +1,23 @@
 import React, {Component} from 'react';
-import {NavigatorIOS, AppRegistry, Navigator, Text, View} from 'react-native';
+import {AppRegistry, Navigator, Text, View} from 'react-native';
 
 import Login from './ios_pages/Login';
 
 class rn_learning extends Component {
     render() {
+        var defaultName = '登录';
+        var defaultComponent = Login;
         return (
+            //导航器
             <Navigator
-                initialRoute={{ title: '登录', index: 0 }}
+                initialRoute={{ name: defaultName, component: defaultComponent }}
                 configureScene={(route) => {
-                return Navigator.SceneConfigs.VerticalDownSwipeJump;
-              }}
-                renderScene={(route, navigator) =>
-          <Login
-            title={route.title}
-
-            // Function to call when a new scene should be displayed
-            onForward={ () => {
-              const nextIndex = route.index + 1;
-              navigator.push({
-                title: '首页',
-                index: nextIndex,
-              });
-            }}
-
-            // Function to call to go back to the previous scene
-            onBack={() => {
-              if (route.index > 0) {
-                navigator.pop();
-              }
-            }}
-          />
-        }
-            />
+            return Navigator.SceneConfigs.HorizontalSwipeJump;
+        }}
+                renderScene={(route, navigator) => {
+            let Component = route.component;
+            return <Component {...route.params} navigator={navigator} />
+        }}/>
         )
     }
 }
