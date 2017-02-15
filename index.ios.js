@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {AppRegistry, Navigator, Text, View} from 'react-native';
 
-import Login from './ios_pages/Login';
+import Login from './src/Login';
 
 class rn_learning extends Component {
     render() {
