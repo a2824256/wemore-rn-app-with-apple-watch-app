@@ -9,6 +9,7 @@ class rn_learning extends Component {
         var defaultComponent = Login;
         return (
             //导航器
+
             <Navigator
                 initialRoute={{ name: defaultName, component: defaultComponent }}
                 configureScene={(route) => {
