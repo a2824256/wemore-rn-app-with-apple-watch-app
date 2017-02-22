@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import {View, Text, TextInput, StyleSheet, Button, Alert, TouchableHighlight, Image} from 'react-native';
-import TopTabBar from './components/TopTabBar';
+import TopTabBar from '../components/TopTabBar';
 
 export default class Main extends Component {
     constructor(props) {

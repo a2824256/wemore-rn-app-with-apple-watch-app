@@ -1,77 +1,60 @@
+'use strict';
+
 import React, {Component, PropTypes} from 'react';
 import {View, Text, TextInput, StyleSheet, Button, Alert, TouchableHighlight, Image} from 'react-native';
-import NavBar from './components/NavBar';
-import Main from './Main';
-//登录接口
-const LOGIN_URL = 'http://localhost:3000/account/login';
+import {connect} from 'react-redux';
+import NavBar from '../components/NavBar';
+import {logIn} from '../actions/user';
+
 //图片地址
 const PIC_URL = 'http://school.coolmoresever.com/images/pic.jpeg';
 
-
-// class NavigatorBar extends Component {
-//     render() {
-//         return (
-//             <View style={styles.Bar}>
-//                 <text>{this.props.name}</text>
-//             </View>
-//         )
-//     }
-// }
-
-export default class Login extends Component {
+class LoginPage extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
             account: '',
-            password: ''
+            password: '',
+            btnFlag: true,
         };
+        // this.handleLogin = this.handleLogin.bind(this);
     }
 
+    //
+    shouldComponentUpdate(nextProps, nextState) {
 
-    checkInput = () => {
-        if (this.state.account == '' || this.state.password == '') {
-            Alert.alert('账号或密码不能为空！！');
-            return true;
+        if (nextProps.isLoggedIn != this.props.isLoggedIn && nextProps.isLoggedIn === true) {
+            this.toMain();
+            return false;
         }
-        return false;
+        if (nextProps.status == 'doing') {
+            //loggining
+            return false;
+        }
+        if (nextProps.status == 'error' || nextProps.status == 'done') {
+            return false;
+        }
+
+        return true;
     }
 
-    submitInput = () => {
-        if (this.checkInput()) {
+    toMain = () => {
+        const {router} = this.props;
+        router.toMain();
+    }
+
+    handleLogin = () => {
+        if (!this.state.account || !this.state.password) {
+            Alert.alert('账号或密码不能为空！！');
             return;
         }
-        this.fetchData();
+        let opt = {
+            'acc': this.state.account,
+            'pwd': this.state.password,
+        };
+        this.props.dispatch(logIn(opt));
     }
-
-    fetchData() {
-        fetch(LOGIN_URL + '/' + this.state.account + '/' + this.state.password, {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            }
-        })
-            .then((response) => response.json())
-            .then((responseData) => {
-                if (responseData.status) {
-                    //TODO
-                    //登录成功
-                    Alert.alert(responseData.info);
-                    this.props.navigator.push({
-                        name: '主页',
-                        component: Main,
-                        params: {
-                            account: this.state.account,
-                        }
-                    })
-                    return;
-                }
-                //登录失败
-                Alert.alert(responseData.info);
-            });
-    }
-
 
     render() {
         var pic_url = PIC_URL;
@@ -103,7 +86,7 @@ export default class Login extends Component {
                             textAlign='center'
                             onChangeText={(password) => this.setState({password})}
                         />
-                        <TouchableHighlight onPress={this.submitInput} underlayColor="#52ABFF" style={styles.button}>
+                        <TouchableHighlight onPress={this.handleLogin} underlayColor="#52ABFF" style={styles.button}>
                             <Text style={{color: '#fff'}}>登录</Text>
                         </TouchableHighlight>
                     </View>
@@ -163,3 +146,13 @@ const styles = StyleSheet.create({
         height: 100,
     }
 });
+
+function select(store) {
+    return {
+        isLoggedIn: store.userStore.isLoggedIn,
+        user: store.userStore.user,
+        status: store.userStore.status,
+    }
+}
+
+export default connect(select)(LoginPage);
