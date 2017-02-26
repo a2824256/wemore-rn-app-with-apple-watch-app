@@ -2,5 +2,6 @@
 
 login page
 
-
- ![image](https://github.com/a2824256/react_native_learning/blob/master/screenshots/login.png)
+<div  align="center">    
+<img src="https://github.com/a2824256/react_native_learning/blob/master/screenshots/login.png" width = "337" height = "600" alt="登录页面" align=center />
+</div>
