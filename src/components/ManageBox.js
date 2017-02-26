@@ -15,7 +15,6 @@ class ManageBox extends Component {
 
     render() {
         //nowPage={this.state.page} callback={this._callback} selectPage={this.selectPage}
-        Alert.alert(this.props.page);
         return (
             <View style={{flex:4,flexDirection: 'row'}}>
                 <TabButton name="我的" thisPage='mine' nowPage={this.props.page}/>

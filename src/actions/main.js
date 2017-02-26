@@ -22,19 +22,19 @@ export function changePage(opt) {
     }
 }
 
-export function changeSideBar(type) {
-    return (dispatch) => {
-        switch (type) {
-            case 'normal':
-                dispatch({'type': TYPES.SIDE_BAR_NORMAL});
-                break;
-            case 'left':
-                dispatch({'type': TYPES.SIDE_BAR_LEFT});
-                break;
-            case 'right':
-                dispatch({'type': TYPES.SIDE_BAR_RIGHT});
-                break;
-        }
-        return;
-    }
-}
+// export function changeSideBar(type) {
+//     return (dispatch) => {
+//         switch (type) {
+//             case 'normal':
+//                 dispatch({'type': TYPES.SIDE_BAR_NORMAL});
+//                 break;
+//             case 'left':
+//                 dispatch({'type': TYPES.SIDE_BAR_LEFT});
+//                 break;
+//             case 'right':
+//                 dispatch({'type': TYPES.SIDE_BAR_RIGHT});
+//                 break;
+//         }
+//         return;
+//     }
+// }

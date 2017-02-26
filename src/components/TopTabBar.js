@@ -3,8 +3,6 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image, TouchableHighlight, Alert} from 'react-native';
 import {connect} from 'react-redux';
 import ManageBox from './ManageBox';
-import {bindActionCreators} from 'redux';
-import * as actionCreators from '../actions/main';
 
 
 //顶部栏
@@ -20,10 +18,7 @@ class TopTabBar extends Component {
 
 
     _press(type) {
-        if (type == this.props.sideBarStatus) {
-            return;
-        }
-        this.props.actions.changeSideBar(type);
+        this.props.callback(type);
     }
 
 
@@ -103,14 +98,7 @@ const styles = StyleSheet.create({
 function select(store) {
     return {
         status: store.mainStore.status,
-        sideBarStatus: store.sideBarStore.status,
     }
 }
 
-function mapDispatchToProps(dispatch) {
-    return {
-        actions: bindActionCreators(actionCreators, dispatch)
-    };
-}
-
-export default connect(select, mapDispatchToProps)(TopTabBar);
+export default connect(select)(TopTabBar);

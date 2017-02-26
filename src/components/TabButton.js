@@ -17,16 +17,14 @@ class TabButton extends Component {
 
     _press(o) {
         this.props.actions.changePage(o);
-        this.props.actions.changeSideBar('normal');
     }
-
 
     render() {
         if (this.props.page == this.props.thisPage) {
             return (
                 <View style={styles.row_box}>
                     <TouchableHighlight style={styles.touch_high} onPress={()=>{this._press(this.props.thisPage)}}
-                                        underlayColor="#008000">
+                                        underlayColor="#009999">
                         <Text style={styles.high_text}>{this.props.name}</Text>
                     </TouchableHighlight>
                 </View>
@@ -35,7 +33,7 @@ class TabButton extends Component {
             return (
                 <View style={styles.row_box}>
                     <TouchableHighlight style={styles.touch_high} onPress={()=>{this._press(this.props.thisPage)}}
-                                        underlayColor="#008000">
+                                        underlayColor="#009999">
                         <Text style={styles.text}>{this.props.name}</Text>
                     </TouchableHighlight>
                 </View>
