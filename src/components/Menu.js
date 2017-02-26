@@ -6,7 +6,7 @@ class Menu extends Component {
     render() {
         return (
             <View style={{backgroundColor:'#009999',flex:1}}>
-                <View style={{backgroundColor:'#f51e07',flex:2}}>
+                <View style={{backgroundColor:'#fff',flex:2}}>
                     <View>
                     </View>
                 </View>
