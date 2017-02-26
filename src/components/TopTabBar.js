@@ -26,13 +26,13 @@ class TopTabBar extends Component {
         return (
             <View >
                 <View>
-                    <View style={{height: 20,backgroundColor:'#228B22'}}/>
+                    <View style={{height: 20,backgroundColor:'#009999'}}/>
                 </View>
                 <View style={styles.row}>
                     <View style={{flex:2}}>
                         <View style={{flex:1,alignItems: 'center', justifyContent: 'center'}}>
                             <View style={{height:20,width:30}}>
-                                <TouchableHighlight onPress={()=>this._press('left')} underlayColor="#008000">
+                                <TouchableHighlight onPress={()=>this._press('left')} underlayColor="#009999">
                                     <Image source={require('./img/select.png')} style={styles.left_box}/>
                                 </TouchableHighlight>
                             </View>
@@ -44,7 +44,7 @@ class TopTabBar extends Component {
                     <View style={{flex:2}}>
                         <View style={{flex:1,alignItems: 'center', justifyContent: 'center'}}>
                             <View style={{height:20,width:30}}>
-                                <TouchableHighlight onPress={()=>this._press('right')} underlayColor="#008000">
+                                <TouchableHighlight onPress={()=>this._press('right')} underlayColor="#009999">
                                     <Image source={require('./img/search.png')} style={styles.right_box}/>
                                 </TouchableHighlight>
                             </View>
@@ -59,7 +59,7 @@ class TopTabBar extends Component {
 const styles = StyleSheet.create({
     row: {
         flexDirection: 'row',
-        backgroundColor: '#008000'
+        backgroundColor: '#009999'
     },
     row_box: {
         flex: 1,
