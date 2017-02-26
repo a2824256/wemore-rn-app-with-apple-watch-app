@@ -3,7 +3,7 @@ import { Dimensions, Navigator } from 'react-native';
 
 const { width } = Dimensions.get('window');
 
-const baseConfig = Navigator.SceneConfigs.FloatFromRight;
+const baseConfig = Navigator.SceneConfigs.HorizontalSwipeJump;
 const popGestureConfig = Object.assign({}, baseConfig.gestures.pop, {
     edgeHitWidth: width / 3
 });

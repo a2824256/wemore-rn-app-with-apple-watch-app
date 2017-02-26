@@ -16,9 +16,7 @@ class LoginPage extends Component {
         this.state = {
             account: '',
             password: '',
-            btnFlag: true,
         };
-        // this.handleLogin = this.handleLogin.bind(this);
     }
 
     //
