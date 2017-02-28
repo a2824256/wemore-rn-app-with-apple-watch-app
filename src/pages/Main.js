@@ -53,11 +53,11 @@ class Main extends Component {
 
         return (
             // 右滑侧栏
-            <SideMenu menu={menu} isOpen={this.state.leftSideBar} menuPosition="left"
-                      onChange={(isOpen) => this.updateMenuState(isOpen,'left')}>
-                {/*//左滑侧栏*/}
-                <SideMenu menu={menuRight} isOpen={this.state.rightSideBar} menuPosition="right"
-                          onChange={(isOpen) => this.updateMenuState(isOpen,'right')}>
+
+            <SideMenu menu={menuRight} isOpen={this.state.rightSideBar} menuPosition="right"
+                      onChange={(isOpen) => this.updateMenuState(isOpen,'right')}>
+                <SideMenu menu={menu} isOpen={this.state.leftSideBar} menuPosition="left"
+                          onChange={(isOpen) => this.updateMenuState(isOpen,'left')}>
                     <View style={{flex:1,backgroundColor:'#FAFAFA'}}>
                         {/*我写的绿色顶部栏*/}
                         <TopTabBar pageStatus={this.props.page} callback={this.returnBack}/>
