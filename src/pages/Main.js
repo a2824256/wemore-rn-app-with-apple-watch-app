@@ -8,7 +8,6 @@ import MenuRight from '../components/MenuRight';
 import BottomBar from '../components/BottomBar';
 import SwitchPage from './SwitchPage'
 
-
 class Main extends Component {
     constructor(props) {
         super(props);

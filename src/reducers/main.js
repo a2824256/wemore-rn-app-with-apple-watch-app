@@ -27,7 +27,21 @@ export default function mainPage(state=initialState, action){
                 ...state,
                 status: 'mine'
             };
-
+        case TYPES.WORLD_GAME:
+            return {
+                ...state,
+                status: 'world-game'
+            };
+        case TYPES.BUILDING:
+            return{
+                ...state,
+                status: 'building'
+            };
+        case TYPES.NORMAL:
+            return{
+                ...state,
+                status: 'normal'
+            };
         default:
             return state;
     }

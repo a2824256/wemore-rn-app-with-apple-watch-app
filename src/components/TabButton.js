@@ -8,6 +8,7 @@ import * as actionCreators from '../actions/main';
 
 //单粒按钮
 class TabButton extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -50,11 +51,13 @@ const styles = StyleSheet.create({
         height: 30
     },
     text: {
-        color: '#cacabc'
+        color: '#cacabc',
+        fontSize: 17
     },
     high_text: {
-        textDecorationLine: 'underline',
+        // textDecorationLine: 'underline',
         color: '#f6fdff',
+        fontSize: 20
     },
     touch_high: {
         marginTop: 20,

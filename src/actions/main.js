@@ -17,6 +17,15 @@ export function changePage(opt) {
             case 'mine':
                 dispatch({'type': TYPES.MAIN_MINE, page: opt});
                 break;
+            case 'world-game':
+                dispatch({'type': TYPES.WORLD_GAME, page: opt});
+                break;
+            case 'building':
+                dispatch({'type': TYPES.BUILDING, page: opt});
+                break;
+            case 'normal':
+                dispatch({'type': TYPES.NORMAL, page: opt});
+                break;
         }
         return;
     }

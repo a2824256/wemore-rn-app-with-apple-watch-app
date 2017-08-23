@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Image} from 'react-native';
 import {connect} from 'react-redux';
 import Game from './Game';
 import Mine from './Mine';
 import Life from './Life';
+import WorldGame from  './WorldGame';
+import Building from './Building';
+import NormalGame from './NormalGame';
 
 class SwitchPage extends Component {
     constructor(props) {
@@ -14,21 +17,35 @@ class SwitchPage extends Component {
         switch (this.props.page) {
             case 'life':
                 return (
-                    <View style={{flex:1}}>
+                    <View style={{flex: 1}}>
                         <Life/>
                     </View>
                 );
                 break;
             case 'mine':
                 return (
-                    <View style={{flex:1}}>
+                    <View style={{flex: 1}}>
                         <Mine/>
                     </View>
                 );
                 break;
+            case 'world-game':
+                return (
+                    <View style={{flex: 1}}>
+                        <WorldGame/>
+                    </View>
+                );
+            case 'building':
+                return (
+                    <Building/>
+                );
+            case 'normal':
+                return(
+                    <NormalGame/>
+                );
             default:
                 return (
-                    <View style={{flex:1}}>
+                    <View style={{flex: 1}}>
                         <Game/>
                     </View>
                 );
@@ -36,7 +53,6 @@ class SwitchPage extends Component {
         }
     }
 }
-
 
 
 function select(store) {

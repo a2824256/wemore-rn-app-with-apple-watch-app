@@ -7,6 +7,8 @@ import { Navigator } from 'react-native';
 
 import LoginPage from '../pages/Login';
 import MainPage from '../pages/Main';
+import WorldGame from '../pages/WorldGame';
+import Building from '../pages/Building';
 
 
 // Config
@@ -49,7 +51,21 @@ class Router {
         })
     }
 
+    toWorldGame(props){
+        this.push(props, {
+            page: WorldGame,
+            name: 'world-game-page',
+            sceneConfig: customFloatFromRight
+        })
+    }
 
+    toBuilding(props){
+        this.push(props, {
+            page: Building,
+            name: 'building',
+            sceneConfig: customFloatFromRight
+        })
+    }
 
     replaceWithHome() {
         this.navigator.popToTop()

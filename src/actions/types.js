@@ -13,6 +13,9 @@ export const LOGGED_DOING = 'LOGGED_DOING';
 export const MAIN_GAME = 'MAIN_GAME';
 export const MAIN_MINE = 'MAIN_MINE';
 export const MAIN_LIFE = 'MAIN_LIFE';
+export const WORLD_GAME = 'WORLD_GAME';
+export const BUILDING = 'BUILDING';
+export const NORMAL = 'NORMAL';
 
 // for sideBar
 export const SIDE_BAR_NORMAL = 'SIDE_BAR_NORMAL';

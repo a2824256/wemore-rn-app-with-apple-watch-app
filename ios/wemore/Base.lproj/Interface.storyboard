@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="12029"/>
+    </dependencies>
+    <scenes>
+        <!--世界频道消息-->
+        <scene sceneID="26M-GC-wp6">
+            <objects>
+                <controller identifier="news" title="世界频道消息" id="8mg-Vi-zYZ" customClass="TablerowController" customModule="wemore_Extension">
+                    <items>
+                        <label alignment="center" text="世界频道消息" textAlignment="center" id="qHJ-YD-G41"/>
+                        <separator alignment="left" id="Bev-LA-LJh"/>
+                        <table alignment="left" id="1Hq-Jh-ibE">
+                            <items>
+                                <tableRow identifier="RowController" id="RmV-tJ-VKt" customClass="RowController" customModule="wemore_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="hiZ-lY-J3w">
+                                        <items>
+                                            <label alignment="left" verticalAlignment="center" text="Label" textAlignment="center" id="290-Ku-Hme"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="nameLabel" destination="290-Ku-Hme" id="Sc8-YB-J5E"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="1Hq-Jh-ibE" id="l8t-3H-aRq"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="17" y="-64"/>
+        </scene>
+        <!--战况-->
+        <scene sceneID="qda-Qi-PZ9">
+            <objects>
+                <controller identifier="war" title="战况" id="1P6-K0-Av9" customClass="WarController" customModule="wemore_Extension">
+                    <items>
+                        <label height="20" alignment="center" text="实时战况" textAlignment="center" id="5gu-0V-Cqw"/>
+                        <separator alignment="left" id="kYS-ZH-bck"/>
+                        <group width="1" alignment="left" id="0j9-aV-zm2">
+                            <items>
+                                <label width="40" alignment="left" text="A组" textAlignment="center" id="0gt-q1-45O"/>
+                                <label width="40" alignment="right" text="B组" textAlignment="center" id="phO-Fa-zHI"/>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" id="E1Z-cM-5vb">
+                            <items>
+                                <label width="23" alignment="left" verticalAlignment="center" text="--" textAlignment="center" id="5PU-r0-vjr"/>
+                                <label width="79" height="19" alignment="center" verticalAlignment="center" text="总建造据点" textAlignment="center" baselineAdjustment="alignCenters" minimumScaleFactor="0.80000000000000004" id="dXv-XN-xi1"/>
+                                <label width="23" alignment="right" verticalAlignment="center" text="--" textAlignment="center" id="3a2-GO-EuV"/>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" id="BkP-Zy-bMG">
+                            <items>
+                                <label width="23" alignment="left" verticalAlignment="center" text="--" textAlignment="center" id="s15-An-hki"/>
+                                <label alignment="center" verticalAlignment="center" text="现存据点" textAlignment="center" id="avj-yr-5gT"/>
+                                <label width="23" alignment="right" verticalAlignment="center" text="--" textAlignment="center" id="XCC-IB-h9O"/>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" id="N5b-rv-mWr">
+                            <items>
+                                <label width="23" alignment="left" verticalAlignment="center" text="--" textAlignment="center" id="qcE-Fm-DIo"/>
+                                <label alignment="center" verticalAlignment="center" text="已拆据点" textAlignment="center" id="Fak-QB-Plw"/>
+                                <label width="23" alignment="right" verticalAlignment="center" text="--" textAlignment="center" id="yxt-cn-VTQ"/>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="aEndLab" destination="qcE-Fm-DIo" id="C7J-P0-nQH"/>
+                        <outlet property="aNowLab" destination="s15-An-hki" id="Zzs-S8-UMm"/>
+                        <outlet property="aTotalLab" destination="5PU-r0-vjr" id="lU3-Uc-Wzf"/>
+                        <outlet property="bEndLab" destination="yxt-cn-VTQ" id="Otc-eE-Rcx"/>
+                        <outlet property="bNowLab" destination="XCC-IB-h9O" id="2Gv-oT-RdU"/>
+                        <outlet property="bTotalLab" destination="3a2-GO-EuV" id="bPI-7S-UTp"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="388" y="-79"/>
+        </scene>
+        <!--结束倒计时-->
+        <scene sceneID="X8F-Z2-ha2">
+            <objects>
+                <controller identifier="Timer" title="结束倒计时" id="ypC-G3-ZQt" customClass="TimerController" customModule="wemore_Extension">
+                    <items>
+                        <label alignment="center" text="本周比赛结束倒计时" textAlignment="center" id="QPb-Ef-6fe"/>
+                        <separator alignment="left" id="YvM-pU-jDZ"/>
+                        <timer alignment="center" verticalAlignment="center" textAlignment="center" id="wPX-3H-04a">
+                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <calendarUnit key="units" day="YES" hour="YES" minute="YES" second="YES"/>
+                        </timer>
+                    </items>
+                    <connections>
+                        <outlet property="timer" destination="wPX-3H-04a" id="Pdc-xx-Lt3"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-136" y="320"/>
+        </scene>
+        <!--主页-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller identifier="main" title="主页" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="wemore" customModuleProvider="target">
+                    <items>
+                        <label width="136" alignment="center" text="wemore" textAlignment="center" id="KHp-JQ-TEG">
+                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </label>
+                        <separator alignment="left" id="5Wt-yH-GRb">
+                            <color key="color" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </separator>
+                        <button width="1" alignment="left" title="查看周边据点" id="CKK-bu-gRK">
+                            <connections>
+                                <segue destination="pvI-10-59q" kind="push" id="qcj-Kx-kRj"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="最新战况" id="w3Y-Bb-gNy">
+                            <connections>
+                                <segue destination="1P6-K0-Av9" kind="push" id="1Ia-mo-7KP"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="世界频道消息" id="qH0-qX-T2f">
+                            <connections>
+                                <segue destination="8mg-Vi-zYZ" kind="push" id="iPC-Pq-3SW"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="比赛倒计时" id="jqe-7J-UtI">
+                            <connections>
+                                <segue destination="ypC-G3-ZQt" kind="push" id="6dk-5D-H4X"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="75" y="849"/>
+        </scene>
+        <!--wemap-->
+        <scene sceneID="QFj-CY-Pku">
+            <objects>
+                <controller identifier="map" title="wemap" id="pvI-10-59q" customClass="RequestLocationInterfaceController" customModule="wemore_Extension">
+                    <items>
+                        <button width="1" alignment="left" title="获取附近的据点" id="GpW-5H-qd7">
+                            <connections>
+                                <action selector="requestLocation" destination="pvI-10-59q" id="Nty-wS-NVB"/>
+                            </connections>
+                        </button>
+                        <map height="100" alignment="left" enabled="NO" id="Cyn-IF-dTs"/>
+                        <group width="1" alignment="left" id="CME-pH-ia8">
+                            <items>
+                                <label alignment="left" text="耗时:" id="GMG-yh-ymj"/>
+                                <timer alignment="left" id="Wg7-bw-R7u"/>
+                            </items>
+                        </group>
+                        <separator alignment="left" id="DcD-Jk-Cxo"/>
+                        <label alignment="left" text="Label" id="lWg-Gr-dmL"/>
+                        <label alignment="left" text="Label" id="QuX-bd-lf8"/>
+                        <separator alignment="left" id="Sgn-Ug-N99"/>
+                        <label alignment="left" text="Label" id="ocV-gL-PLR"/>
+                    </items>
+                    <connections>
+                        <outlet property="displayTimer" destination="Wg7-bw-R7u" id="Bft-c5-YPK"/>
+                        <outlet property="errorLabel" destination="ocV-gL-PLR" id="8fk-V4-hNq"/>
+                        <outlet property="latitudeLabel" destination="lWg-Gr-dmL" id="XQl-Il-YDm"/>
+                        <outlet property="longitudeLabel" destination="QuX-bd-lf8" id="Lvj-jk-ZOa"/>
+                        <outlet property="mapObject" destination="Cyn-IF-dTs" id="S5y-Cw-Gmh"/>
+                        <outlet property="requestLocationButton" destination="GpW-5H-qd7" id="RvX-yx-gz7"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="567" y="382"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="wemore" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="497" y="849"/>
+        </scene>
+    </scenes>
+</document>

@@ -74,15 +74,17 @@ class LoginPage extends Component {
                             placeholder='请输入手机/邮箱/账号'
                             textAlign='center'
                             onChangeText={(account) => this.setState({account})}
+                            underlineColorAndroid='transparent'
                         />
                         <View style={{height:2}}/>
                         <TextInput
-                            password={true}
+                            secureTextEntry={true}
                             style={styles.TextInput}
                             placeholder='密码'
                             autoCapitalize='none'
                             textAlign='center'
                             onChangeText={(password) => this.setState({password})}
+                            underlineColorAndroid='transparent'
                         />
                         <TouchableHighlight onPress={this.handleLogin} underlayColor="#52ABFF" style={styles.button}>
                             <Text style={{color: '#fff'}}>登录</Text>
@@ -109,8 +111,8 @@ const styles = StyleSheet.create({
     },
     content: {
         marginTop: 10,
-        height: 35,
-        backgroundColor: '#FAFAFA'
+        height: 150,
+        // backgroundColor: '#FAFAFA'
     },
     font: {
         padding: 10,
@@ -118,7 +120,7 @@ const styles = StyleSheet.create({
     },
     TextInput: {
         height: 40,
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
     },
     Copyright: {
         flex: 1,

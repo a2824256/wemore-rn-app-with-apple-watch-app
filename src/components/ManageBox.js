@@ -14,9 +14,8 @@ class ManageBox extends Component {
     }
 
     render() {
-        //nowPage={this.state.page} callback={this._callback} selectPage={this.selectPage}
         return (
-            <View style={{flex:4,flexDirection: 'row'}}>
+            <View style={{flex:6,flexDirection: 'row'}}>
                 <TabButton name="我的" thisPage='mine' nowPage={this.props.page}/>
                 <TabButton name="游戏" thisPage='game' nowPage={this.props.page}/>
                 <TabButton name="生活" thisPage='life' nowPage={this.props.page}/>

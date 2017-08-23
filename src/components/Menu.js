@@ -11,6 +11,14 @@ export const pursePic = require('./img/menuButton/purse.png');
 export const settingPic = require('./img/menuButton/setting.png');
 
 class Menu extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+        }
+    }
+
+
+
     render() {
         return (
             <View style={{backgroundColor:'#009999',flex:1}}>
