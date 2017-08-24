@@ -14,8 +14,13 @@ export const MAIN_GAME = 'MAIN_GAME';
 export const MAIN_MINE = 'MAIN_MINE';
 export const MAIN_LIFE = 'MAIN_LIFE';
 export const WORLD_GAME = 'WORLD_GAME';
+export const SUCKER = 'SUCKER';
+export const PROPS = 'PROPS';
 export const BUILDING = 'BUILDING';
 export const NORMAL = 'NORMAL';
+export const USERINFO = 'USERINFO';
+export const MYACCOUNT = 'MYACCOUNT';
+export const MY_MSG = 'MY_MSG';
 
 // for sideBar
 export const SIDE_BAR_NORMAL = 'SIDE_BAR_NORMAL';

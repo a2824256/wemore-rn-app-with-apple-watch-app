@@ -20,8 +20,23 @@ export function changePage(opt) {
             case 'world-game':
                 dispatch({'type': TYPES.WORLD_GAME, page: opt});
                 break;
+            case 'sucker':
+                dispatch({'type': TYPES.SUCKER, page: opt});
+                break;
+            case 'userinfo':
+                dispatch({'type': TYPES.USERINFO, page: opt});
+                break;
+            case 'myaccount':
+                dispatch({'type': TYPES.MYACCOUNT, page: opt});
+                break;
+            case 'props':
+                dispatch({'type': TYPES.PROPS, page: opt});
+                break;
             case 'building':
                 dispatch({'type': TYPES.BUILDING, page: opt});
+                break;
+            case 'mymsg':
+                dispatch({'type': TYPES.MY_MSG, page: opt});
                 break;
             case 'normal':
                 dispatch({'type': TYPES.NORMAL, page: opt});

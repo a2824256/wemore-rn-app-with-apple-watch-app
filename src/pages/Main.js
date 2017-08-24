@@ -25,6 +25,19 @@ class Main extends Component {
     //     return ((_t = typeof(o)) == "object" ? o == null && "null" || Object.prototype.toString.call(o).slice(8, -1) : _t).toLowerCase();
     // }
 
+    shouldComponentUpdate(nextProps, nextState) {
+
+        if (nextProps.isLoggedIn != this.props.isLoggedIn && nextProps.isLoggedIn === false) {
+            this.toLogin();
+            return false;
+        }
+        return true;
+    }
+
+    toLogin = () => {
+        const {router} = this.props;
+        router.toLogin();
+    }
 
     returnBack(sideBarId) {
         if (sideBarId == 'left') {
@@ -47,8 +60,8 @@ class Main extends Component {
 
 
     render() {
-        const menu = <Menu navigator={navigator}/>;
-        const menuRight = <MenuRight navigator={navigator}/>
+        const menu = <Menu navigator={navigator} callback={this.returnBack}/>;
+        const menuRight = <MenuRight navigator={navigator} callback={this.returnBack}/>
 
         return (
             // 右滑侧栏
@@ -72,7 +85,10 @@ class Main extends Component {
 
 function select(store) {
     return {
-        page: store.mainStore.status
+        page: store.mainStore.status,
+        isLoggedIn: store.userStore.isLoggedIn,
+        user: store.userStore.user,
+        status: store.userStore.status,
     }
 }
 

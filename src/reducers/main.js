@@ -32,6 +32,31 @@ export default function mainPage(state=initialState, action){
                 ...state,
                 status: 'world-game'
             };
+        case TYPES.SUCKER:
+            return {
+                ...state,
+                status: 'sucker'
+            };
+        case TYPES.MYACCOUNT:
+            return {
+                ...state,
+                status: 'myaccount'
+            };
+        case TYPES.PROPS:
+            return {
+                ...state,
+                status: 'props'
+            };
+        case TYPES.MY_MSG:
+            return {
+                ...state,
+                status: 'mymsg'
+            };
+        case TYPES.USERINFO:
+            return {
+                ...state,
+                status: 'userinfo'
+            };
         case TYPES.BUILDING:
             return{
                 ...state,

@@ -40,3 +40,9 @@ export function logIn(opt) {
             });
     }
 }
+
+export function logOut() {
+    return (dispatch) => {
+        dispatch({'type': TYPES.LOGGED_OUT});
+    }
+}

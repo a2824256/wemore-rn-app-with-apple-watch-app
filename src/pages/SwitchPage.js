@@ -7,6 +7,11 @@ import Life from './Life';
 import WorldGame from  './WorldGame';
 import Building from './Building';
 import NormalGame from './NormalGame';
+import Sucker from './Sucker';
+import Props from './PropsShop';
+import UserInfo from './UserInfo';
+import MyAccount from './MyAccount';
+import MyMsg from './MyMsg';
 
 class SwitchPage extends Component {
     constructor(props) {
@@ -42,6 +47,26 @@ class SwitchPage extends Component {
             case 'normal':
                 return(
                     <NormalGame/>
+                );
+            case 'sucker':
+                return(
+                    <Sucker/>
+                );
+            case 'props':
+                return(
+                    <Props/>
+                );
+            case 'userinfo':
+                return(
+                    <UserInfo/>
+                );
+            case 'myaccount':
+                return(
+                    <MyAccount/>
+                );
+            case 'mymsg':
+                return(
+                    <MyMsg/>
                 );
             default:
                 return (

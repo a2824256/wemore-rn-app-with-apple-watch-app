@@ -59,9 +59,6 @@ class Game extends Component {
                     <View style={styles.slide4}>
                         <Text style={styles.text}>轮播图4</Text>
                     </View>
-                    <View style={styles.slide5}>
-                        <Text style={styles.text}>轮播图5</Text>
-                    </View>
                 </Swiper>
                 <View style={{flex:1}}>
                     <View style={{height:80,backgroundColor:'#fff',flexDirection: 'row'}}>
@@ -98,12 +95,16 @@ class Game extends Component {
                     <View style={{height:7}}/>
                     <View style={{flexDirection: 'row'}}>
                         <View style={styles.picBox}>
+                            <TouchableHighlight onPress={()=>{this._press('sucker')}}>
                             <Image style={{height:70,width:170,justifyContent: 'center',alignItems: 'center'}}
                                    source={bg_1}/>
+                            </TouchableHighlight>
                         </View>
                         <View style={styles.picBox}>
+                            <TouchableHighlight onPress={()=>{this._press('props')}}>
                             <Image style={{height:70,width:170,justifyContent: 'center',alignItems: 'center'}}
                                    source={bg_2}/>
+                            </TouchableHighlight>
                         </View>
                     </View>
                     <View>
