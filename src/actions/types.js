@@ -21,6 +21,8 @@ export const NORMAL = 'NORMAL';
 export const USERINFO = 'USERINFO';
 export const MYACCOUNT = 'MYACCOUNT';
 export const MY_MSG = 'MY_MSG';
+export const FRIEND = 'FRIEND';
+export const SETTING = 'SETTING';
 
 // for sideBar
 export const SIDE_BAR_NORMAL = 'SIDE_BAR_NORMAL';

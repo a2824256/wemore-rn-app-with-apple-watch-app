@@ -12,6 +12,8 @@ import Props from './PropsShop';
 import UserInfo from './UserInfo';
 import MyAccount from './MyAccount';
 import MyMsg from './MyMsg';
+import Friend from './Friend';
+import Setting from './Setting';
 
 class SwitchPage extends Component {
     constructor(props) {
@@ -45,28 +47,36 @@ class SwitchPage extends Component {
                     <Building/>
                 );
             case 'normal':
-                return(
+                return (
                     <NormalGame/>
                 );
             case 'sucker':
-                return(
+                return (
                     <Sucker/>
                 );
             case 'props':
-                return(
+                return (
                     <Props/>
                 );
             case 'userinfo':
-                return(
+                return (
                     <UserInfo/>
                 );
             case 'myaccount':
-                return(
+                return (
                     <MyAccount/>
                 );
             case 'mymsg':
-                return(
+                return (
                     <MyMsg/>
+                );
+            case 'friend':
+                return (
+                    <Friend/>
+                );
+            case 'setting':
+                return (
+                    <Setting/>
                 );
             default:
                 return (

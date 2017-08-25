@@ -38,6 +38,12 @@ export function changePage(opt) {
             case 'mymsg':
                 dispatch({'type': TYPES.MY_MSG, page: opt});
                 break;
+            case 'friend':
+                dispatch({'type': TYPES.FRIEND, page: opt});
+                break;
+            case 'setting':
+                dispatch({'type': TYPES.SETTING, page: opt});
+                break;
             case 'normal':
                 dispatch({'type': TYPES.NORMAL, page: opt});
                 break;

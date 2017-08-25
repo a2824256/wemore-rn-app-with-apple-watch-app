@@ -62,10 +62,20 @@ export default function mainPage(state=initialState, action){
                 ...state,
                 status: 'building'
             };
+        case TYPES.FRIEND:
+            return{
+                ...state,
+                status: 'friend'
+            };
         case TYPES.NORMAL:
             return{
                 ...state,
                 status: 'normal'
+            };
+        case TYPES.SETTING:
+            return{
+                ...state,
+                status: 'setting'
             };
         default:
             return state;

@@ -48,14 +48,7 @@ class Menu extends Component {
                     <View style={{flexDirection: 'column', alignSelf: 'stretch', marginTop: 20}}>
                         <Lmb pic={userPic} name="我的资料" site="userinfo" callback={this.props.callback}/>
                         <Lmb pic={messagePic} name="我的消息" site="mymsg"  callback={this.props.callback}/>
-                        <View style={styles.buttonBox}>
-                            <View style={styles.box_2}/>
-                            <Image source={friendPic} style={styles.buttonImage}/>
-                            <View style={styles.box_2}/>
-                            <View style={styles.center}>
-                                <Text style={styles.text}>我的好友</Text>
-                            </View>
-                        </View>
+                        <Lmb pic={friendPic} name="我的好友" site="friend"  callback={this.props.callback}/>
                         <Lmb pic={pursePic} name="我的账户" site="myaccount" callback={this.props.callback}/>
                         <View style={styles.buttonBox}>
                             <View style={styles.box_2}/>
