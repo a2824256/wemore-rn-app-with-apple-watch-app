@@ -1,6 +1,6 @@
 'use strict';
 import React from 'react';
-import { Navigator } from 'react-native';
+import {Navigator} from 'react-native';
 
 
 // Pages
@@ -9,6 +9,7 @@ import LoginPage from '../pages/Login';
 import MainPage from '../pages/Main';
 import WorldGame from '../pages/WorldGame';
 import Building from '../pages/Building';
+import SearchPage from  '../pages/Search';
 
 
 // Config
@@ -35,7 +36,7 @@ class Router {
         this.navigator.pop()
     }
 
-    toLogin(props){
+    toLogin(props) {
         this.push(props, {
             page: LoginPage,
             name: 'login-page',
@@ -43,7 +44,15 @@ class Router {
         })
     }
 
-    toMain(props){
+    toSearch(props){
+        this.push(props, {
+            page: SearchPage,
+            name: 'search-page',
+            sceneConfig: customFloatFromRight
+        })
+    }
+
+    toMain(props) {
         this.push(props, {
             page: MainPage,
             name: 'main-page',
@@ -51,7 +60,7 @@ class Router {
         })
     }
 
-    toWorldGame(props){
+    toWorldGame(props) {
         this.push(props, {
             page: WorldGame,
             name: 'world-game-page',
@@ -59,7 +68,7 @@ class Router {
         })
     }
 
-    toBuilding(props){
+    toBuilding(props) {
         this.push(props, {
             page: Building,
             name: 'building',
@@ -71,7 +80,7 @@ class Router {
         this.navigator.popToTop()
     }
 
-    resetToLogin(){
+    resetToLogin() {
         this.navigator.resetTo({
             name: 'login-page',
             page: LoginPage,

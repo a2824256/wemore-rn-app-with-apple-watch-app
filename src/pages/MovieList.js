@@ -7,10 +7,12 @@ import {
     StyleSheet,
     Image,
     ListView,
-    Alert
+    Alert,
+    TouchableHighlight
 } from 'react-native';
 import {connect} from 'react-redux';
 import * as URL from '../configs/urlManage';
+import MoviePlay from '../components/MoviePlayButton';
 
 export const PLAY = require('../components/img/play.png');
 
@@ -42,12 +44,16 @@ class MovieList extends Component {
     renderLoadingView() {
         return (
             <View style={styles.container}>
-                <View style={{height:100}}></View>
-                <Text style={{color:'#4b4b4b'}}>
+                <View style={{height: 100}}></View>
+                <Text style={{color: '#4b4b4b'}}>
                     Loading...
                 </Text>
             </View>
         );
+    }
+
+    moviePlay() {
+        Alert.alert('视频已被管理员删除！');
     }
 
     componentDidMount() {
@@ -62,15 +68,15 @@ class MovieList extends Component {
                     style={styles.thumbnail}
                 />
                 <View style={styles.rightContainer}>
-                    <View style={{marginLeft:30}}><Text style={styles.name}>{movie.name}</Text></View>
-                    <View style={{height:10}}/>
-                    <View style={{marginLeft:30,flexDirection: 'row',alignItems: 'center'}}>
-                        <View style={{flex:1,flexDirection: 'row',alignItems: 'center'}}>
+                    <View style={{marginLeft: 30}}><Text style={styles.name}>{movie.name}</Text></View>
+                    <View style={{height: 10}}/>
+                    <View style={{marginLeft: 30, flexDirection: 'row', alignItems: 'center'}}>
+                        <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
                             <Text style={styles.info}>{movie.content}</Text>
                         </View>
                     </View>
                 </View>
-                <Image source={PLAY} style={{height:40,width:40,marginRight:20}} />
+                <MoviePlay/>
             </View>
         );
     }

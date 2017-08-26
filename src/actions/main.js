@@ -47,24 +47,31 @@ export function changePage(opt) {
             case 'normal':
                 dispatch({'type': TYPES.NORMAL, page: opt});
                 break;
+            case 'textpage':
+                dispatch({'type': TYPES.TEXTPAGE, page: opt});
+                break;
         }
         return;
     }
 }
 
-// export function changeSideBar(type) {
-//     return (dispatch) => {
-//         switch (type) {
-//             case 'normal':
-//                 dispatch({'type': TYPES.SIDE_BAR_NORMAL});
-//                 break;
-//             case 'left':
-//                 dispatch({'type': TYPES.SIDE_BAR_LEFT});
-//                 break;
-//             case 'right':
-//                 dispatch({'type': TYPES.SIDE_BAR_RIGHT});
-//                 break;
-//         }
-//         return;
-//     }
-// }
+export function searchContent(opt) {
+    return (dispatch) => {
+        dispatch({'type': TYPES.SEARCH, content: opt});
+    }
+}
+
+
+export function changeBottom(opt) {
+    return (dispatch) => {
+        switch (opt) {
+            case 'close':
+                dispatch({'type': TYPES.BOTTOM_CLOSE, page: opt});
+                break;
+            case 'open':
+                dispatch({'type': TYPES.BOTTOM_OPEN, page: opt});
+                break;
+        }
+        return;
+    }
+}

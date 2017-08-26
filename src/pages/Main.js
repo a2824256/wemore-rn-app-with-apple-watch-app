@@ -39,6 +39,11 @@ class Main extends Component {
         router.toLogin();
     }
 
+    toSearch = () => {
+        const {router} = this.props;
+        router.toSearch();
+    }
+
     returnBack(sideBarId) {
         if (sideBarId == 'left') {
             this.setState({leftSideBar: !this.state.leftSideBar});
@@ -67,10 +72,10 @@ class Main extends Component {
             // 右滑侧栏
 
             <SideMenu menu={menuRight} isOpen={this.state.rightSideBar} menuPosition="right"
-                      onChange={(isOpen) => this.updateMenuState(isOpen,'right')}>
+                      onChange={(isOpen) => this.updateMenuState(isOpen, 'right')}>
                 <SideMenu menu={menu} isOpen={this.state.leftSideBar} menuPosition="left"
-                          onChange={(isOpen) => this.updateMenuState(isOpen,'left')}>
-                    <View style={{flex:1,backgroundColor:'#FAFAFA'}}>
+                          onChange={(isOpen) => this.updateMenuState(isOpen, 'left')}>
+                    <View style={{flex: 1, backgroundColor: '#FAFAFA'}}>
                         {/*我写的绿色顶部栏*/}
                         <TopTabBar pageStatus={this.props.page} callback={this.returnBack}/>
                         <SwitchPage pageStatus={this.props.page}/>

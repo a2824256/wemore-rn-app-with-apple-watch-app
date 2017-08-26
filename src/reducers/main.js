@@ -5,6 +5,7 @@ import * as TYPES from '../actions/types';
 
 const initialState = {
     status: 'game',
+    content: null
 };
 
 export default function mainPage(state=initialState, action){
@@ -20,6 +21,12 @@ export default function mainPage(state=initialState, action){
             return {
                 ...state,
                 status: 'game'
+            };
+
+        case TYPES.TEXTPAGE:
+            return {
+                ...state,
+                status: 'textpage'
             };
 
         case TYPES.MAIN_MINE:
@@ -76,6 +83,12 @@ export default function mainPage(state=initialState, action){
             return{
                 ...state,
                 status: 'setting'
+            };
+        case TYPES.SEARCH:
+            return{
+                ...state,
+                status: 'search',
+                content: action.content,
             };
         default:
             return state;

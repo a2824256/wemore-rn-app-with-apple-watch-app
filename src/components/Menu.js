@@ -50,14 +50,7 @@ class Menu extends Component {
                         <Lmb pic={messagePic} name="我的消息" site="mymsg"  callback={this.props.callback}/>
                         <Lmb pic={friendPic} name="我的好友" site="friend"  callback={this.props.callback}/>
                         <Lmb pic={pursePic} name="我的账户" site="myaccount" callback={this.props.callback}/>
-                        <View style={styles.buttonBox}>
-                            <View style={styles.box_2}/>
-                            <Image source={settingPic} style={styles.buttonImage}/>
-                            <View style={styles.box_2}/>
-                            <View style={styles.center}>
-                                <Text style={styles.text}>设置</Text>
-                            </View>
-                        </View>
+                        <Lmb pic={settingPic} name="设置" site="setting" callback={this.props.callback}/>
                         <Lmb pic={logoutPic} name="切换账号" site="myaccount" callback={this.props.callback}/>
                     </View>
                 </View>

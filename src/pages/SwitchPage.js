@@ -14,6 +14,8 @@ import MyAccount from './MyAccount';
 import MyMsg from './MyMsg';
 import Friend from './Friend';
 import Setting from './Setting';
+import Search from './Search';
+import TextPage from './TextPage';
 
 class SwitchPage extends Component {
     constructor(props) {
@@ -77,6 +79,14 @@ class SwitchPage extends Component {
             case 'setting':
                 return (
                     <Setting/>
+                );
+            case 'search':
+                return (
+                    <Search/>
+                );
+            case 'textpage':
+                return (
+                    <TextPage/>
                 );
             default:
                 return (

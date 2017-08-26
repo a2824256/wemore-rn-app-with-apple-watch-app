@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image, TouchableHighlight} from 'react-native';
+import {View, Text, StyleSheet, Image, Switch} from 'react-native';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as actionCreators from '../actions/main';
 
-class LeftMenuButton extends Component {
+class SwitchButton extends Component {
     constructor(props) {
         super(props);
     }
@@ -15,23 +15,19 @@ class LeftMenuButton extends Component {
     }
 
     render() {
-        let userPic = this.props.pic;
-        let name = this.props.name
-        let value = this.props.site
+        let name = this.props.name;
+        let value = this.props.value;
         return (
             <View>
-                <TouchableHighlight onPress={() => {
-                    this._press(value, 'left')
-                }} underlayColor="#009999">
-                    <View style={styles.buttonBox}>
-                        <View style={styles.box_2}/>
-                        <Image source={userPic} style={styles.buttonImage}/>
-                        <View style={styles.box_2}/>
-                        <View style={styles.center}>
-                            <Text style={styles.text}>{name}</Text>
-                        </View>
+                <View style={styles.buttonBox}>
+                    <View style={styles.box_2}/>
+                    <View style={styles.center}>
+                        <Text style={styles.text}>{name}</Text>
                     </View>
-                </TouchableHighlight>
+                    <View>
+                        <Switch value={value} disabled={false} thumbTintColor='green'/>
+                    </View>
+                </View>
             </View>
         )
     }
@@ -72,4 +68,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(select, mapDispatchToProps)(LeftMenuButton);
+export default connect(select, mapDispatchToProps)(SwitchButton);

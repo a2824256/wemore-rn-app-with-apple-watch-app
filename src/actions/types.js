@@ -23,8 +23,9 @@ export const MYACCOUNT = 'MYACCOUNT';
 export const MY_MSG = 'MY_MSG';
 export const FRIEND = 'FRIEND';
 export const SETTING = 'SETTING';
+export const SEARCH = 'SEARCH';
+export const TEXTPAGE = 'TEXTPAGE';
 
-// for sideBar
-export const SIDE_BAR_NORMAL = 'SIDE_BAR_NORMAL';
-export const SIDE_BAR_LEFT = 'SIDE_BAR_LEFT';
-export const SIDE_BAR_RIGHT = 'SIDE_BAR_RIGHT';
+// for bottom
+export const BOTTOM_CLOSE = 'BOTTOM_CLOSE';
+export const BOTTOM_OPEN = 'BOTTOM_OPEN';
