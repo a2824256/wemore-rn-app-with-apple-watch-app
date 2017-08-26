@@ -19,6 +19,9 @@ import BottomLine from '../components/BottomLine';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as actionCreators from '../actions/main';
+import Spic from '../components/SwipePic';
+
+const PIC_URL = 'http://school.coolmoresever.com/images/pic.jpeg';
 
 
 export const world = require('../components/img/world.png');
@@ -47,18 +50,10 @@ class Game extends Component {
         return (
             <ScrollView style={{backgroundColor:'#dfdfdf',flex:1}}>
                 <Swiper style={styles.wrapper} height={200} autoplay>
-                    <View style={styles.slide1}>
-                        <Text style={styles.text}>轮播图1</Text>
-                    </View>
-                    <View style={styles.slide2}>
-                        <Text style={styles.text}>轮播图2</Text>
-                    </View>
-                    <View style={styles.slide3}>
-                        <Text style={styles.text}>轮播图3</Text>
-                    </View>
-                    <View style={styles.slide4}>
-                        <Text style={styles.text}>轮播图4</Text>
-                    </View>
+                    <Spic pic='http://school.coolmoresever.com/images/pic.jpeg' height={250}/>
+                    <Spic pic='http://school.coolmoresever.com/images/pic.jpeg' height={250}/>
+                    <Spic pic='http://school.coolmoresever.com/images/pic.jpeg' height={250}/>
+                    <Spic pic='http://school.coolmoresever.com/images/pic.jpeg' height={250}/>
                 </Swiper>
                 <View style={{flex:1}}>
                     <View style={{height:80,backgroundColor:'#fff',flexDirection: 'row'}}>

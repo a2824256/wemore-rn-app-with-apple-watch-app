@@ -1,28 +1,65 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Image, TouchableHighlight} from 'react-native';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as actionCreators from '../actions/main';
 
-export default class NavBar extends Component {
+class SwipePic extends Component {
+
+    _press(o, url) {
+        this.props.actions.changeBottom(o, url);
+    }
+
     render() {
-        return (
-            <View>
-                <View style={styles.Bar}>
-                    <View style={{height: 20}}/>
-                    <Text style={{color:'#696969',fontSize:17}}>{this.props.title}</Text>
+        var pic = this.props.pic;
+        var height = this.props.height;
+        var url = this.props.url;
+        if (url == null) {
+            return (
+                <View>
+                    <Image
+                        resizeMode={Image.resizeMode.stretch}
+                        style={{
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            height: height,
+                        }}
+                        source={{uri: pic}}
+                    />
                 </View>
-                <View style={{height:2,backgroundColor:'#DCDCDC'}}/>
-            </View>
-        )
+            )
+        } else {
+            return (
+                <View>
+                    <TouchableHighlight onPress={() => {
+                        this._press('xxx', url)
+                    }}>
+                        <Image
+                            resizeMode={Image.resizeMode.stretch}
+                            style={{
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                height: height,
+                            }}
+                            source={{uri: pic}}
+                        />
+                    </TouchableHighlight>
+                </View>
+            )
+        }
     }
 }
 
-
-const styles = StyleSheet.create({
-    Bar: {
-        height: 52,
-        backgroundColor: '#F5F5F5',
-        alignItems: 'center',
-        justifyContent: 'center',
+function select(store) {
+    return {
+        user: store.userStore.user,
     }
-});
+}
 
-module.exports = NavBar;
+function mapDispatchToProps(dispatch) {
+    return {
+        actions: bindActionCreators(actionCreators, dispatch)
+    };
+}
+
+export default connect(select, mapDispatchToProps)(SwipePic);
