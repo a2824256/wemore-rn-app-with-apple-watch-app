@@ -64,7 +64,7 @@ class Game extends Component {
                                 this._press('normal')
                             }}>
                                 <Image source={putong}
-                                       style={styles.image}></Image>
+                                       style={styles.image}/>
                             </TouchableHighlight>
                             <Text style={styles.text_2}>普通战</Text>
                         </View>
