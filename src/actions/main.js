@@ -1,6 +1,6 @@
 'use strict';
 
-// import {Alert} from 'react-native';
+import {Alert} from 'react-native';
 
 import * as TYPES from './types';
 
@@ -61,6 +61,11 @@ export function searchContent(opt) {
     }
 }
 
+export function openOffical(opt) {
+    return (dispatch) => {
+        dispatch({'type': TYPES.OFFICAL, content: opt});
+    }
+}
 
 export function changeBottom(opt) {
     return (dispatch) => {

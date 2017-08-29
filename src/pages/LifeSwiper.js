@@ -7,27 +7,16 @@ import {
     Image,
     StyleSheet
 } from 'react-native';
-import Swiper from 'react-native-swiper'
+import Swiper from 'react-native-swiper';
+import Spic from '../components/SwipePic';
 
 export default class LifeSwiper extends Component {
     render(){
         return(
             <Swiper style={styles.wrapper} height={400} autoplay horizontal={false} showsPagination={false}>
-                <View style={styles.slide1}>
-                    <Text style={styles.text}>轮播图1</Text>
-                </View>
-                <View style={styles.slide2}>
-                    <Text style={styles.text}>轮播图2</Text>
-                </View>
-                <View style={styles.slide3}>
-                    <Text style={styles.text}>轮播图3</Text>
-                </View>
-                <View style={styles.slide4}>
-                    <Text style={styles.text}>轮播图4</Text>
-                </View>
-                <View style={styles.slide5}>
-                    <Text style={styles.text}>轮播图5</Text>
-                </View>
+                <Spic pic='http://148.coolmoresever.com/Public/wemore/life1.jpeg' height={400} url='http://148.coolmoresever.com/index.php?m=Home&c=Index&a=lifeman&num=1'/>
+                <Spic pic='http://148.coolmoresever.com/Public/wemore/life2.jpeg' height={400} url='http://148.coolmoresever.com/index.php?m=Home&c=Index&a=lifeman&num=2'/>
+                <Spic pic='http://148.coolmoresever.com/Public/wemore/life3.jpeg' height={400} url='http://148.coolmoresever.com/index.php?m=Home&c=Index&a=lifeman&num=3'/>
             </Swiper>
         )
     }

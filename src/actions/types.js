@@ -25,6 +25,7 @@ export const FRIEND = 'FRIEND';
 export const SETTING = 'SETTING';
 export const SEARCH = 'SEARCH';
 export const TEXTPAGE = 'TEXTPAGE';
+export const OFFICAL = 'OFFICAL';
 
 // for bottom
 export const BOTTOM_CLOSE = 'BOTTOM_CLOSE';

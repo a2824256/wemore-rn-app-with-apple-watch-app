@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import Game from './Game';
 import Mine from './Mine';
 import Life from './Life';
-import WorldGame from  './WorldGame';
+import WorldGame from './WorldGame';
 import Building from './Building';
 import NormalGame from './NormalGame';
 import Sucker from './Sucker';
@@ -16,6 +16,7 @@ import Friend from './Friend';
 import Setting from './Setting';
 import Search from './Search';
 import TextPage from './TextPage';
+import Offical from './OfficalInfo';
 
 class SwitchPage extends Component {
     constructor(props) {
@@ -88,6 +89,10 @@ class SwitchPage extends Component {
                 return (
                     <TextPage/>
                 );
+            case 'offical':
+                return (
+                    <Offical/>
+                )
             default:
                 return (
                     <View style={{flex: 1}}>

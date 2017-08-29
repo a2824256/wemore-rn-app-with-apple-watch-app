@@ -90,6 +90,12 @@ export default function mainPage(state=initialState, action){
                 status: 'search',
                 content: action.content,
             };
+        case TYPES.OFFICAL:
+            return{
+                ...state,
+                status: 'offical',
+                content: action.content,
+            };
         default:
             return state;
     }

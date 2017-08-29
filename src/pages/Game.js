@@ -48,70 +48,90 @@ class Game extends Component {
     render() {
 
         return (
-            <ScrollView style={{backgroundColor:'#dfdfdf',flex:1}}>
+            <ScrollView style={{backgroundColor: '#dfdfdf', flex: 1}}>
                 <Swiper style={styles.wrapper} height={200} autoplay>
-                    <Spic pic='http://school.coolmoresever.com/images/pic.jpeg' height={250}/>
-                    <Spic pic='http://school.coolmoresever.com/images/pic.jpeg' height={250}/>
-                    <Spic pic='http://school.coolmoresever.com/images/pic.jpeg' height={250}/>
-                    <Spic pic='http://school.coolmoresever.com/images/pic.jpeg' height={250}/>
+                    <Spic pic='http://148.coolmoresever.com/Public/wemore/lb1.jpg' height={250}
+                          url='http://148.coolmoresever.com/index.php?m=Home&c=Index&a=newsman&num=1'/>
+                    <Spic pic='http://148.coolmoresever.com/Public/wemore/lb2.jpg' height={250}
+                          url='http://148.coolmoresever.com/index.php?m=Home&c=Index&a=newsman&num=2'/>
+                    <Spic pic='http://148.coolmoresever.com/Public/wemore/lb3.jpg' height={250}
+                          url='http://148.coolmoresever.com/index.php?m=Home&c=Index&a=newsman&num=3'/>
                 </Swiper>
-                <View style={{flex:1}}>
-                    <View style={{height:80,backgroundColor:'#fff',flexDirection: 'row'}}>
+                <View style={{flex: 1}}>
+                    <View style={{height: 80, backgroundColor: '#fff', flexDirection: 'row'}}>
                         <View style={styles.buttonBox}>
-                            <TouchableHighlight onPress={()=>{this._press('normal')}}>
-                            <Image source={putong}
-                                   style={styles.image}></Image>
+                            <TouchableHighlight onPress={() => {
+                                this._press('normal')
+                            }}>
+                                <Image source={putong}
+                                       style={styles.image}></Image>
                             </TouchableHighlight>
                             <Text style={styles.text_2}>普通战</Text>
                         </View>
                         <View style={styles.buttonBox}>
-                            <TouchableHighlight onPress={()=>{this._press('world-game')}}>
+                            <TouchableHighlight onPress={() => {
+                                this._press('world-game')
+                            }}>
                                 <Image source={world}
                                        style={styles.image}></Image>
                             </TouchableHighlight>
                             <Text style={styles.text_2}>世界战</Text>
                         </View>
                         <View style={styles.buttonBox}>
-                            <TouchableHighlight onPress={()=>{this._press('building')}}>
-                            <Image source={daoju}
-                                   style={styles.image}></Image>
+                            <TouchableHighlight onPress={() => {
+                                this._press('building')
+                            }}>
+                                <Image source={daoju}
+                                       style={styles.image}></Image>
                             </TouchableHighlight>
                             <Text style={styles.text_2}>道具战</Text>
                         </View>
                         <View style={styles.buttonBox}>
-                            <TouchableHighlight onPress={()=>{this._press('building')}}>
-                            <Image source={zhiye}
-                                   style={styles.image}></Image>
+                            <TouchableHighlight onPress={() => {
+                                this._press('building')
+                            }}>
+                                <Image source={zhiye}
+                                       style={styles.image}></Image>
                             </TouchableHighlight>
                             <Text style={styles.text_2}>职业战</Text>
                         </View>
                     </View>
-                    <View style={{height:1,backgroundColor:'#b7b7b7'}}/>
-                    <View style={{height:7}}/>
+                    <View style={{height: 1, backgroundColor: '#b7b7b7'}}/>
+                    <View style={{height: 7}}/>
                     <View style={{flexDirection: 'row'}}>
                         <View style={styles.picBox}>
-                            <TouchableHighlight onPress={()=>{this._press('sucker')}}>
-                            <Image style={{height:70,width:170,justifyContent: 'center',alignItems: 'center'}}
-                                   source={bg_1}/>
+                            <TouchableHighlight onPress={() => {
+                                this._press('sucker')
+                            }}>
+                                <Image style={{height: 70, width: 170, justifyContent: 'center', alignItems: 'center'}}
+                                       source={bg_1}/>
                             </TouchableHighlight>
                         </View>
                         <View style={styles.picBox}>
-                            <TouchableHighlight onPress={()=>{this._press('props')}}>
-                            <Image style={{height:70,width:170,justifyContent: 'center',alignItems: 'center'}}
-                                   source={bg_2}/>
+                            <TouchableHighlight onPress={() => {
+                                this._press('props')
+                            }}>
+                                <Image style={{height: 70, width: 170, justifyContent: 'center', alignItems: 'center'}}
+                                       source={bg_2}/>
                             </TouchableHighlight>
                         </View>
                     </View>
                     <View>
                         <View>
                             <Text
-                                style={{fontWeight: 'bold',marginLeft:10,marginTop:20,fontSize:15,color:'#7f7f7f'}}>好友排名</Text>
+                                style={{
+                                    fontWeight: 'bold',
+                                    marginLeft: 10,
+                                    marginTop: 20,
+                                    fontSize: 15,
+                                    color: '#7f7f7f'
+                                }}>好友排名</Text>
                         </View>
-                        <FriendList />
+                        <FriendList/>
                     </View>
                 </View>
-                < BottomLine />
-            </ ScrollView >
+                < BottomLine/>
+            </ ScrollView>
         )
     }
 }

@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
-import {View, Image, TouchableHighlight} from 'react-native';
+import {View, Image, TouchableHighlight, Alert} from 'react-native';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as actionCreators from '../actions/main';
 
 class SwipePic extends Component {
 
-    _press(o, url) {
-        this.props.actions.changeBottom(o, url);
+    _press(url) {
+        this.props.actions.openOffical(url);
     }
 
     render() {
@@ -32,7 +32,7 @@ class SwipePic extends Component {
             return (
                 <View>
                     <TouchableHighlight onPress={() => {
-                        this._press('xxx', url)
+                        this._press(url)
                     }}>
                         <Image
                             resizeMode={Image.resizeMode.stretch}
