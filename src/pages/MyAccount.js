@@ -2,7 +2,7 @@
  * Created by PPPPP_leung on 2017/6/11.
  */
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image, Dimensions, TouchableHighlight} from 'react-native';
+import {View, Text, StyleSheet, Image, Dimensions, TouchableHighlight, ScrollView} from 'react-native';
 import {connect} from 'react-redux';
 import {logOut} from '../actions/user';
 var {width, height} = Dimensions.get('window');
@@ -22,7 +22,7 @@ class MyAccount extends Component {
 
     render() {
         return (
-            <View style={{flex: 1, flexDirection: 'column'}}>
+            <ScrollView style={{flex: 1, flexDirection: 'column'}}>
                 <View style={{flex: 1, flexDirection: 'row', marginTop: 10}}>
                     <View style={{flex: 2,marginLeft:15}}>
                         <Image source={friend}
@@ -65,7 +65,7 @@ class MyAccount extends Component {
                         </TouchableHighlight>
                     </View>
                 </View>
-            </View>
+            </ScrollView>
         )
     }
 }

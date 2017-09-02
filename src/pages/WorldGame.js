@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#9DD6EB',
     },
     map:{
-        flex:1
+        flex:1,
     }
 });
 

@@ -2,8 +2,9 @@
  * Created by PPPPP_leung on 2017/6/11.
  */
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image, Dimensions, WebView} from 'react-native';
+import {View, Text, StyleSheet, Image, Dimensions, WebView, ScrollView} from 'react-native';
 import {connect} from 'react-redux';
+
 var {width, height} = Dimensions.get('window');
 var long = width / 2;
 var long_2 = width / 4;
@@ -18,9 +19,9 @@ class MyMsg extends Component {
     render() {
         var url = 'http://148.coolmoresever.com/index.php?m=Home&c=Index&a=mymsg&acc=' + this.props.user.acc;
         return (
-            <View style={{flex: 1, flexDirection: 'column'}}>
+            <ScrollView style={{flex: 1, flexDirection: 'column'}}>
                 <View style={{flex: 1, flexDirection: 'row', marginTop: 10}}>
-                    <View style={{flex: 2,marginLeft:15}}>
+                    <View style={{flex: 2, marginLeft: 15}}>
                         <Image source={msg}
                                style={styles.image}></Image>
                     </View>
@@ -34,13 +35,14 @@ class MyMsg extends Component {
                         }}>我的消息</Text>
                     </View>
                 </View>
-                <View style={{height: 0.5, backgroundColor: '#464646'}}/>
+                <View style={{height: 0.5, marginTop: 10, backgroundColor: '#464646'}}/>
                 <View style={{flex: 9}}>
-                    <WebView style={styles.map} source={{uri:url,method:'GET'}} startInLoadingState={true} domStorageEnabled={true}
+                    <WebView style={styles.map} source={{uri: url, method: 'GET'}} startInLoadingState={true}
+                             domStorageEnabled={true}
                              javaScriptEnabled={true}>
                     </WebView>
                 </View>
-            </View>
+            </ScrollView>
         )
     }
 }
@@ -63,6 +65,10 @@ const styles = StyleSheet.create({
         borderRadius: long_2,
         marginLeft: long_2,
         marginTop: 25
+    },
+    map: {
+        width: width,
+        height: height,
     }
 });
 

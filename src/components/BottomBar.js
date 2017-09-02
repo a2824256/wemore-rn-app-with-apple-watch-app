@@ -100,6 +100,7 @@ const styles = StyleSheet.create({
     },
     row_open: {
         height: 160,
+        zIndex:9999
     },
     text: {
         color: '#00967d',

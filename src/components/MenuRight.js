@@ -25,23 +25,26 @@ class MenuRight extends Component {
                     <View style={{flex: 1, flexDirection: 'row'}}>
                         <View style={{flex: 9}}>
                             <TextInput style={styles.textInput}
-                                       placeholder="  输入关键字搜索" underlineColorAndroid='transparent'
+                                       placeholder="输入关键字搜索" underlineColorAndroid='transparent'
                                        placeholderTextColor="#ffffff"
                                        onChangeText={(text) => this.setState({text})}/>
                         </View>
                         <View style={{
                             flex: 1, alignSelf: 'center',
                             justifyContent: 'center',
+                            marginRight: 10,
+                            width: 30, height: 30
                         }}>
                             <TouchableHighlight onPress={() => {
                                 this._search(this.state.text)
-                            }}>
-                                <View>
-                                    <Image source={require('./img/search.png')} style={{width: 20, height: 20}}/>
+                            }} style={{width: 30, height: 30}}>
+                                <View style={{width: 30, height: 30}}>
+                                    <Image source={require('./img/search.png')} style={{width: 30, height: 30}}/>
                                 </View>
                             </TouchableHighlight>
                         </View>
                     </View>
+                    <View style={{height: 10}}/>
                     <View style={{height: 0.5, backgroundColor: '#fdfdfd'}}/>
                 </View>
                 <View style={{flex: 8}}>
@@ -66,13 +69,13 @@ class MenuRight extends Component {
 
 const styles = StyleSheet.create({
     textInput: {
-        height: 30,
+        height: 32,
         backgroundColor: '#00bab0',
         borderWidth: 1,
         borderColor: '#00e2cd',
         // borderRightColor:'#00bab0',
         marginLeft: 5,
-        marginRight: 5
+        marginRight: 10
     },
     text: {
         color: '#fff',

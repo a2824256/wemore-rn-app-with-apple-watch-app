@@ -78,9 +78,11 @@ class Main extends Component {
                     <View style={{flex: 1, backgroundColor: '#FAFAFA'}}>
                         {/*我写的绿色顶部栏*/}
                         <TopTabBar pageStatus={this.props.page} callback={this.returnBack}/>
-                        <SwitchPage pageStatus={this.props.page}/>
+                        <View style={{flex: 1, zIndex: 1}}>
+                            <SwitchPage pageStatus={this.props.page}/>
+                        </View>
                         {/*我写的底部栏*/}
-                        <BottomBar/>
+                        <BottomBar  style={{flex: 1, zIndex: 9999}}/>
                     </View>
                 </SideMenu>
             </SideMenu>

@@ -2,9 +2,10 @@
  * Created by PPPPP_leung on 2017/6/11.
  */
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image, Dimensions, Switch} from 'react-native';
+import {View, Text, StyleSheet, Image, Dimensions, Switch, ScrollView} from 'react-native';
 import {connect} from 'react-redux';
 import SettingButton from '../components/SwitchButton';
+
 var {width, height} = Dimensions.get('window');
 var long = width / 2;
 var long_2 = width / 4;
@@ -18,7 +19,7 @@ class Setting extends Component {
 
     render() {
         return (
-            <View style={{flex: 1, flexDirection: 'column'}}>
+            <ScrollView style={{flex: 1, flexDirection: 'column'}}>
                 <View style={{flex: 1, flexDirection: 'row', marginTop: 10}}>
                     <View style={{flex: 2, marginLeft: 15}}>
                         <Image source={setting}
@@ -35,7 +36,13 @@ class Setting extends Component {
                     </View>
                 </View>
                 <View style={{flex: 7}}>
-                    <View style={{height: 0.5, backgroundColor: '#959595', marginLeft: 20, marginRight: 20}}/>
+                    <View style={{
+                        height: 0.5,
+                        backgroundColor: '#959595',
+                        marginTop: 10,
+                        marginLeft: 20,
+                        marginRight: 20
+                    }}/>
                     <View style={styles.switch_button}>
                         <View style={styles.text_box}>
                             <Text style={styles.text}>新消息提醒</Text>
@@ -109,7 +116,7 @@ class Setting extends Component {
                     </View>
                     <View style={{flex: 2}}/>
                 </View>
-            </View>
+            </ScrollView>
         )
     }
 }
@@ -159,9 +166,10 @@ const styles = StyleSheet.create({
         marginLeft: 30,
     },
     setting_button_box: {
-        flex:1,
+        flex: 1,
         justifyContent: 'center',
         alignSelf: 'flex-start',
+        marginTop: 10
     },
 });
 

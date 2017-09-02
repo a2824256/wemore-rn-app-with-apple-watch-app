@@ -2,8 +2,9 @@
  * Created by PPPPP_leung on 2017/6/11.
  */
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image, Dimensions} from 'react-native';
+import {View, Text, StyleSheet, Image, Dimensions, ScrollView} from 'react-native';
 import {connect} from 'react-redux';
+
 var {width, height} = Dimensions.get('window');
 var long = width / 2;
 var long_2 = width / 4;
@@ -17,9 +18,9 @@ class UserInfo extends Component {
 
     render() {
         return (
-            <View style={{flex: 1, flexDirection: 'column'}}>
+            <ScrollView style={{flex: 1, flexDirection: 'column'}}>
                 <View style={{flex: 1, flexDirection: 'row', marginTop: 10}}>
-                    <View style={{flex: 2,marginLeft:15}}>
+                    <View style={{flex: 2, marginLeft: 15}}>
                         <Image source={friend}
                                style={styles.image}></Image>
                     </View>
@@ -53,47 +54,47 @@ class UserInfo extends Component {
                         </View>
                     </View>
                     <View style={{flex: 1}}>
-                        <View style={{flex:1}}/>
-                        <View style={{flex:1,flexDirection:'row'}}>
-                            <View style={{marginLeft:25,flex:1,justifyContent: 'center'}}>
+                        <View style={{flex: 1}}/>
+                        <View style={{flex: 1, flexDirection: 'row', marginTop: 10}}>
+                            <View style={{marginLeft: 25, flex: 1, justifyContent: 'center'}}>
                                 <Text style={{color: '#565656'}}>所属军团</Text>
                             </View>
-                            <View style={{marginLeft:long,flex:1,justifyContent: 'center'}}>
+                            <View style={{marginLeft: long, flex: 1, justifyContent: 'center'}}>
                                 <Text style={{color: '#565656'}}>{this.props.user.team_name}军</Text>
                             </View>
                         </View>
-                        <View style={{height: 0.5, backgroundColor: '#464646'}}/>
-                        <View style={{flex:1,flexDirection:'row'}}>
-                            <View style={{marginLeft:25,flex:1,justifyContent: 'center'}}>
+                        <View style={{height: 0.5, backgroundColor: '#464646', marginTop: 10}}/>
+                        <View style={{flex: 1, flexDirection: 'row', marginTop: 10}}>
+                            <View style={{marginLeft: 25, flex: 1, justifyContent: 'center'}}>
                                 <Text style={{color: '#565656'}}>胜利</Text>
                             </View>
-                            <View style={{marginLeft:long,flex:1,justifyContent: 'center'}}>
+                            <View style={{marginLeft: long, flex: 1, justifyContent: 'center'}}>
                                 <Text style={{color: '#565656'}}>{this.props.user.win_num}</Text>
                             </View>
                         </View>
-                        <View style={{height: 0.5, backgroundColor: '#464646'}}/>
-                        <View style={{flex:1,flexDirection:'row'}}>
-                            <View style={{marginLeft:25,flex:1,justifyContent: 'center'}}>
+                        <View style={{height: 0.5, backgroundColor: '#464646', marginTop: 10}}/>
+                        <View style={{flex: 1, flexDirection: 'row', marginTop: 10}}>
+                            <View style={{marginLeft: 25, flex: 1, justifyContent: 'center'}}>
                                 <Text style={{color: '#565656'}}>失败</Text>
                             </View>
-                            <View style={{marginLeft:long,flex:1,justifyContent: 'center'}}>
+                            <View style={{marginLeft: long, flex: 1, justifyContent: 'center'}}>
                                 <Text style={{color: '#565656'}}>{this.props.user.fail_num}</Text>
                             </View>
                         </View>
-                        <View style={{height: 0.5, backgroundColor: '#464646'}}/>
-                        <View style={{flex:1,flexDirection:'row'}}>
-                            <View style={{marginLeft:25,flex:1,justifyContent: 'center'}}>
+                        <View style={{height: 0.5, backgroundColor: '#464646', marginTop: 10}}/>
+                        <View style={{flex: 1, flexDirection: 'row', marginTop: 10}}>
+                            <View style={{marginLeft: 25, flex: 1, justifyContent: 'center'}}>
                                 <Text style={{color: '#565656'}}>胜率</Text>
                             </View>
-                            <View style={{marginLeft:long,flex:1,justifyContent: 'center'}}>
+                            <View style={{marginLeft: long, flex: 1, justifyContent: 'center'}}>
                                 <Text style={{color: '#565656'}}>{this.props.user.shenglv}%</Text>
                             </View>
                         </View>
-                        <View style={{height: 0.5, backgroundColor: '#464646'}}/>
-                        <View style={{flex:1}}/>
+                        <View style={{height: 0.5, backgroundColor: '#464646', marginTop: 10}}/>
+                        <View style={{flex: 1}}/>
                     </View>
                 </View>
-            </View>
+            </ScrollView>
         )
     }
 }

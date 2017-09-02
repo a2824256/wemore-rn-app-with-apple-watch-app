@@ -31,7 +31,7 @@ class TopTabBar extends Component {
                 <View style={styles.row}>
                     <View style={{flex:2}}>
                         <View style={{flex:1,alignItems: 'center', justifyContent: 'center'}}>
-                            <View style={{height:20,width:30}}>
+                            <View style={{height:30,width:30}}>
                                 <TouchableHighlight onPress={()=>this._press('left')} underlayColor="#009999">
                                     <Image source={require('./img/select.png')} style={styles.left_box}/>
                                 </TouchableHighlight>
@@ -43,7 +43,7 @@ class TopTabBar extends Component {
                     <View style={styles.box}/>
                     <View style={{flex:2}}>
                         <View style={{flex:1,alignItems: 'center', justifyContent: 'center'}}>
-                            <View style={{height:20,width:30}}>
+                            <View style={{height:30,width:30}}>
                                 <TouchableHighlight onPress={()=>this._press('right')} underlayColor="#009999">
                                     <Image source={require('./img/search.png')} style={styles.right_box}/>
                                 </TouchableHighlight>
@@ -84,14 +84,16 @@ const styles = StyleSheet.create({
         marginTop: 20,
     },
     left_box: {
-        height: 20,
+        height: 30,
+        width: 30,
         resizeMode: 'contain',
-        marginLeft: -30
+        // marginLeft: -30
     },
     right_box: {
-        height: 25,
+        height: 30,
+        width: 30,
         resizeMode: 'contain',
-        marginLeft: -10
+        // marginLeft: -10
     }
 });
 
