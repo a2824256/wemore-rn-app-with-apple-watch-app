@@ -1,4 +1,4 @@
-# react_native_learning(React Native + Redux)
+# Wemore_Beta ver.1.2 (React Native + Redux)
 
 # Update 03-Sept-2017
 1.修复webview无法获取定位<br/>
