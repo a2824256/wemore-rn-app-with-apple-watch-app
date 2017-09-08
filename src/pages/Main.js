@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import {View, Text, TextInput, StyleSheet, Button, Alert, TouchableHighlight, Image} from 'react-native';
+import {View} from 'react-native';
 import {connect} from 'react-redux';
 import TopTabBar from '../components/TopTabBar';
 import SideMenu from 'react-native-side-menu';
@@ -19,11 +19,6 @@ class Main extends Component {
         this.returnBack = this.returnBack.bind(this);
         this.updateMenuState = this.updateMenuState.bind(this);
     }
-
-    // getType(o) {
-    //     var _t;
-    //     return ((_t = typeof(o)) == "object" ? o == null && "null" || Object.prototype.toString.call(o).slice(8, -1) : _t).toLowerCase();
-    // }
 
     shouldComponentUpdate(nextProps, nextState) {
 
@@ -49,9 +44,8 @@ class Main extends Component {
             this.setState({leftSideBar: !this.state.leftSideBar});
         } else if (sideBarId == 'right') {
             this.setState({rightSideBar: !this.state.rightSideBar});
-        } else {
-            return;
         }
+        return;
     }
 
     updateMenuState(isOpen, type) {
@@ -63,26 +57,23 @@ class Main extends Component {
         return;
     }
 
-
     render() {
-        const menu = <Menu navigator={navigator} callback={this.returnBack}/>;
-        const menuRight = <MenuRight navigator={navigator} callback={this.returnBack}/>
+        const menu = <Menu navigator={navigator} callback={this.returnBack} />;
+        const menuRight = <MenuRight navigator={navigator} callback={this.returnBack} />
 
         return (
             // 右滑侧栏
 
             <SideMenu menu={menuRight} isOpen={this.state.rightSideBar} menuPosition="right"
-                      onChange={(isOpen) => this.updateMenuState(isOpen, 'right')}>
+                       onChange={(isOpen) => this.updateMenuState(isOpen, 'right')}>
                 <SideMenu menu={menu} isOpen={this.state.leftSideBar} menuPosition="left"
-                          onChange={(isOpen) => this.updateMenuState(isOpen, 'left')}>
+                           onChange={(isOpen) => this.updateMenuState(isOpen, 'left')}>
                     <View style={{flex: 1, backgroundColor: '#FAFAFA'}}>
                         {/*我写的绿色顶部栏*/}
                         <TopTabBar pageStatus={this.props.page} callback={this.returnBack}/>
-                        <View style={{flex: 1, zIndex: 1}}>
-                            <SwitchPage pageStatus={this.props.page}/>
-                        </View>
+                        <SwitchPage pageStatus={this.props.page}/>
                         {/*我写的底部栏*/}
-                        <BottomBar  style={{flex: 1, zIndex: 9999}}/>
+                        <BottomBar style={{flex: 1, zIndex: 1}}/>
                     </View>
                 </SideMenu>
             </SideMenu>

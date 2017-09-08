@@ -63,7 +63,7 @@ class UserInfo extends Component {
                                 <Text style={{color: '#565656'}}>{this.props.user.team_name}军</Text>
                             </View>
                         </View>
-                        <View style={{height: 0.5, backgroundColor: '#464646', marginTop: 10}}/>
+                        <View style={{height: 1, backgroundColor: '#464646', marginTop: 10}}/>
                         <View style={{flex: 1, flexDirection: 'row', marginTop: 10}}>
                             <View style={{marginLeft: 25, flex: 1, justifyContent: 'center'}}>
                                 <Text style={{color: '#565656'}}>胜利</Text>
@@ -72,7 +72,7 @@ class UserInfo extends Component {
                                 <Text style={{color: '#565656'}}>{this.props.user.win_num}</Text>
                             </View>
                         </View>
-                        <View style={{height: 0.5, backgroundColor: '#464646', marginTop: 10}}/>
+                        <View style={{height: 1, backgroundColor: '#464646', marginTop: 10}}/>
                         <View style={{flex: 1, flexDirection: 'row', marginTop: 10}}>
                             <View style={{marginLeft: 25, flex: 1, justifyContent: 'center'}}>
                                 <Text style={{color: '#565656'}}>失败</Text>
@@ -81,7 +81,7 @@ class UserInfo extends Component {
                                 <Text style={{color: '#565656'}}>{this.props.user.fail_num}</Text>
                             </View>
                         </View>
-                        <View style={{height: 0.5, backgroundColor: '#464646', marginTop: 10}}/>
+                        <View style={{height: 1, backgroundColor: '#464646', marginTop: 10}}/>
                         <View style={{flex: 1, flexDirection: 'row', marginTop: 10}}>
                             <View style={{marginLeft: 25, flex: 1, justifyContent: 'center'}}>
                                 <Text style={{color: '#565656'}}>胜率</Text>
@@ -90,7 +90,7 @@ class UserInfo extends Component {
                                 <Text style={{color: '#565656'}}>{this.props.user.shenglv}%</Text>
                             </View>
                         </View>
-                        <View style={{height: 0.5, backgroundColor: '#464646', marginTop: 10}}/>
+                        <View style={{height: 1, backgroundColor: '#464646', marginTop: 10}}/>
                         <View style={{flex: 1}}/>
                     </View>
                 </View>

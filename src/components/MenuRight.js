@@ -75,7 +75,8 @@ const styles = StyleSheet.create({
         borderColor: '#00e2cd',
         // borderRightColor:'#00bab0',
         marginLeft: 5,
-        marginRight: 10
+        marginRight: 10,
+        fontSize: 10
     },
     text: {
         color: '#fff',

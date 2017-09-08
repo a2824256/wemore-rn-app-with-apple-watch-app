@@ -2,9 +2,8 @@
  * Created by PPPPP_leung on 2017/6/11.
  */
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image, Dimensions, ScrollView} from 'react-native';
+import {View, Text, StyleSheet, Image, Dimensions, ScrollView, TouchableHighlight} from 'react-native';
 import {connect} from 'react-redux';
-import {logOut} from '../actions/user';
 import FP from './FriendPage';
 
 var {width, height} = Dimensions.get('window');
@@ -18,26 +17,39 @@ class MyAccount extends Component {
         super(props);
     }
 
-    handleLogout = () => {
-        this.props.dispatch(logOut());
+    _press(o) {
+        this.props.actions.changePage(o);
     }
 
     render() {
         return (
             <ScrollView style={{flex: 1, flexDirection: 'column'}}>
                 <View style={{flex: 1, flexDirection: 'row', marginTop: 10}}>
-                    <View style={{flex: 2,marginLeft:15}}>
+                    <View style={{flex: 1, marginLeft: 15}}>
                         <Image source={friend}
                                style={styles.image}></Image>
                     </View>
-                    <View style={{flex: 10, justifyContent: 'center'}}>
+                    <View style={{flex: 5, justifyContent: 'center'}}>
                         <Text style={{
                             fontSize: 20,
                             marginBottom: 8,
-                            alignSelf: 'stretch',
+                            alignSelf: 'flex-start',
                             fontWeight: 'bold',
-                            color: '#444444'
-                        }}>我的账户</Text>
+                            color: '#444444',
+                            marginLeft:10
+                        }}>我的好友</Text>
+                    </View>
+                    <View style={{flex: 4,flexDirection:'row'}}>
+                        <TouchableHighlight onPress={() => {this._press('add-friends')}} underlayColor="#fff">
+                            <View style={styles.add_friends_button}>
+                                <Text style={{color: '#fff', textAlign: 'center'}}>添加好友</Text>
+                            </View>
+                        </TouchableHighlight>
+                        <TouchableHighlight onPress={() => {this._press('friends-request')}} underlayColor="#fff">
+                            <View style={styles.add_friends_button}>
+                                <Text style={{color: '#fff', textAlign: 'center'}}>好友请求</Text>
+                            </View>
+                        </TouchableHighlight>
                     </View>
                 </View>
                 <View style={{flex: 9}}>
@@ -73,12 +85,21 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 50,
         padding: 10,
-        marginLeft:70,
+        marginLeft: 70,
         marginRight: 70,
         borderColor: '#00ab8f',
         borderWidth: 1,
         borderRadius: 5,
     },
+    add_friends_button: {
+        borderColor: '#00ab8f',
+        borderWidth: 1,
+        borderRadius: 5,
+        backgroundColor: '#00ab8f',
+        height: 30,
+        justifyContent: 'center',
+        marginRight: 10
+    }
 });
 
 export default connect(select)(MyAccount);
