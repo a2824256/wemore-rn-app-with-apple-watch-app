@@ -17,6 +17,7 @@ import Setting from './Setting';
 import Search from './Search';
 import TextPage from './TextPage';
 import Offical from './OfficalInfo';
+import AddFriends from './AddFriends';
 
 class SwitchPage extends Component {
     constructor(props) {
@@ -92,7 +93,11 @@ class SwitchPage extends Component {
             case 'offical':
                 return (
                     <Offical/>
-                )
+                );
+            case 'add-friends':
+                return (
+                    <AddFriends/>
+                );
             default:
                 return (
                     <View style={{flex: 1}}>

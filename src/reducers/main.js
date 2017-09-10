@@ -96,6 +96,11 @@ export default function mainPage(state=initialState, action){
                 status: 'offical',
                 content: action.content,
             };
+        case TYPES.ADDFRIEND:
+            return{
+                ...state,
+                status: 'add-friends',
+            };
         default:
             return state;
     }

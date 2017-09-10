@@ -3,7 +3,7 @@
 import {Alert} from 'react-native';
 
 import * as TYPES from './types';
-
+import * as URL from '../configs/urlManage';
 
 export function changePage(opt) {
     return (dispatch) => {
@@ -50,8 +50,42 @@ export function changePage(opt) {
             case 'textpage':
                 dispatch({'type': TYPES.TEXTPAGE, page: opt});
                 break;
+            case 'add-friends':
+                dispatch({'type': TYPES.ADDFRIEND, page: opt});
+                break;
         }
         return;
+    }
+}
+
+export function searchFriend(name = null) {
+    return (dispatch) => {
+        dispatch({'type': TYPES.FRIEND_SEARCHING});
+        let url = URL.SEARCH_USER_URL;
+        let formData = new FormData();
+        formData.append("name", name);
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'multipart/form-data',
+            },
+            body: formData
+        })
+            .then((response) => response.json())
+            .then((responseData) => {
+                if (responseData.status) {
+                    //TODO
+                    //登录成功
+                    Alert.alert(responseData.reason);
+                    dispatch({'type': TYPES.FRIEND_SEARCHED, user: responseData.user_info});
+                    return;
+                }
+                //登录失败
+                Alert.alert("加载失败");
+            }).catch((e) => {
+            Alert.alert(e.message);
+        });
     }
 }
 

@@ -4,6 +4,8 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image, Dimensions, ScrollView, TouchableHighlight} from 'react-native';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as actionCreators from '../actions/main';
 import FP from './FriendPage';
 
 var {width, height} = Dimensions.get('window');
@@ -12,7 +14,7 @@ var long_2 = width / 4;
 
 export const friend = require('../components/img/menuButton/friend_black.png');
 
-class MyAccount extends Component {
+class Friend extends Component {
     constructor(props) {
         super(props);
     }
@@ -60,13 +62,6 @@ class MyAccount extends Component {
     }
 }
 
-function select(store) {
-    return {
-        isLoggedIn: store.userStore.isLoggedIn,
-        user: store.userStore.user,
-        status: store.userStore.status,
-    }
-}
 
 const styles = StyleSheet.create({
     image: {
@@ -102,4 +97,16 @@ const styles = StyleSheet.create({
     }
 });
 
-export default connect(select)(MyAccount);
+function select(store) {
+    return {
+        page: store.mainStore.status,
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        actions: bindActionCreators(actionCreators, dispatch)
+    };
+}
+
+export default connect(select, mapDispatchToProps)(Friend);

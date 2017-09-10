@@ -26,7 +26,12 @@ export const SETTING = 'SETTING';
 export const SEARCH = 'SEARCH';
 export const TEXTPAGE = 'TEXTPAGE';
 export const OFFICAL = 'OFFICAL';
+export const ADDFRIEND = 'ADDFRIEND';
 
 // for bottom
 export const BOTTOM_CLOSE = 'BOTTOM_CLOSE';
 export const BOTTOM_OPEN = 'BOTTOM_OPEN';
+
+// for friendSearch
+export const FRIEND_SEARCHING = 'FRIEND_SEARCHING';
+export const FRIEND_SEARCHED = 'FRIEND_SEARCHED';

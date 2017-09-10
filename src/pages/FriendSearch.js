@@ -7,15 +7,17 @@ import {
     StyleSheet,
     Image,
     ListView,
+    Alert
 } from 'react-native';
 import {connect} from 'react-redux';
 import * as URL from '../configs/urlManage';
 
 
-class FriendPage extends Component {
+class FriendSearch extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            name: null,
             dataSource: new ListView.DataSource({
                 rowHasChanged: (row1, row2) => row1 !== row2,
             }),
@@ -25,12 +27,13 @@ class FriendPage extends Component {
     }
 
     fetchData() {
-        let url = URL.USERINFO_URL + '&acc=' + this.props.user.acc
+        this.state.name = this.props.name;
+        let url = URL.SEARCH_USER_URL + this.state.name;
         fetch(url)
             .then((response) => response.json())
             .then((responseData) => {
                 this.setState({
-                    dataSource: this.state.dataSource.cloneWithRows(responseData.user_info.friends),
+                    dataSource: this.state.dataSource.cloneWithRows(responseData.list),
                     loaded: true,
                 });
             });
@@ -71,6 +74,9 @@ class FriendPage extends Component {
     }
 
     render() {
+        if (this.state.name) {
+            Alert.alert(this.state.name.toString());
+        }
         if (!this.state.loaded) {
             return this.renderLoadingView();
         }
@@ -109,9 +115,9 @@ const styles = StyleSheet.create({
     thumbnail: {
         width: 50,
         height: 50,
-        borderRadius:25,
+        borderRadius: 25,
         marginLeft: 30,
-        marginBottom:10,
+        marginBottom: 10,
         marginTop: 10
     },
     listView: {
@@ -125,4 +131,4 @@ function select(store) {
     }
 }
 
-export default connect(select)(FriendPage);
+export default connect(select)(FriendSearch);
