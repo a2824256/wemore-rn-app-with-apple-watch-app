@@ -22,12 +22,16 @@ class AddFriends extends Component {
         };
     }
 
+    componentWillMount(){
+        this._search();
+    }
+
     _press(o) {
         this.props.actions.changePage(o);
     }
 
     _search() {
-        this.props.actions.searchFriend(true, this.state.text);
+        this.props.actions.searchFriend(this.state.text);
     }
 
     render() {
@@ -47,14 +51,14 @@ class AddFriends extends Component {
                     <View style={{flex: 4, flexDirection: 'row'}}>
                         <TouchableHighlight onPress={() => {
                             this._search()
-                        }}>
+                        }} underlayColor="#fff">
                             <View style={styles.commit_button}>
                                 <Text style={{color: '#fff', textAlign: 'center'}}>查找</Text>
                             </View>
                         </TouchableHighlight>
                         <TouchableHighlight onPress={() => {
                             this._press('friend')
-                        }}>
+                        }} underlayColor="#fff">
                             <View style={styles.commit_button}>
                                 <Text style={{color: '#fff', textAlign: 'center'}}>后退</Text>
                             </View>
@@ -62,7 +66,7 @@ class AddFriends extends Component {
                     </View>
                 </View>
                 <View style={{flex: 7}}>
-                    <FS name={this.state.text}/>
+                    <FS/>
                 </View>
             </ScrollView>
         )

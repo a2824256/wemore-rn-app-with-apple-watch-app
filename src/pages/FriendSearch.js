@@ -10,8 +10,10 @@ import {
     Alert
 } from 'react-native';
 import {connect} from 'react-redux';
-import * as URL from '../configs/urlManage';
+import {bindActionCreators} from 'redux';
+import * as actionCreators from '../actions/main';
 
+// import * as URL from '../configs/urlManage';
 
 class FriendSearch extends Component {
     constructor(props) {
@@ -23,21 +25,22 @@ class FriendSearch extends Component {
             }),
             loaded: false,
         };
-        this.fetchData = this.fetchData.bind(this);
+        // this.fetchData = this.fetchData.bind(this);
     }
 
-    fetchData() {
-        this.state.name = this.props.name;
-        let url = URL.SEARCH_USER_URL + this.state.name;
-        fetch(url)
-            .then((response) => response.json())
-            .then((responseData) => {
-                this.setState({
-                    dataSource: this.state.dataSource.cloneWithRows(responseData.list),
-                    loaded: true,
-                });
-            });
-    }
+    // fetchData() {
+    //     this.state.name = this.props.name;
+    //     let url = URL.SEARCH_USER_URL + this.state.name;
+    //     fetch(url)
+    //         .then((response) => response.json())
+    //         .then((responseData) => {
+    //         Alert.alert(responseData.list.toString());
+    //             // this.setState({
+    //             //     dataSource: this.state.dataSource.cloneWithRows(responseData.list),
+    //             //     loaded: true,
+    //             // });
+    //         });
+    // }
 
     renderLoadingView() {
         return (
@@ -50,9 +53,9 @@ class FriendSearch extends Component {
         );
     }
 
-    componentDidMount() {
-        this.fetchData();
-    }
+    // componentDidMount() {
+    //     this.fetchData();
+    // }
 
     renderFriends(friends) {
         return (
@@ -74,19 +77,37 @@ class FriendSearch extends Component {
     }
 
     render() {
-        if (this.state.name) {
-            Alert.alert(this.state.name.toString());
-        }
-        if (!this.state.loaded) {
+
+        if (this.props.type == 'loading') {
             return this.renderLoadingView();
+        } else {
+            try {
+                if (this.props.content._cachedRowCount > 0) {
+                    return (
+                        <ListView
+                            dataSource={this.props.content}
+                            renderRow={this.renderFriends}
+                            style={styles.listView}
+                        />
+                    );
+                } else {
+                    return (
+                        <View style={{flex: 1}}>
+                            <View style={{height:100}}></View>
+                            <View style={{justifyContent: 'center', alignItems: 'center',}}><Text>没有找到相关用户</Text></View>
+                        </View>
+                    )
+                }
+            } catch (e) {
+                Alert.alert('error');
+                return (
+                    <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center'}}>
+                        <Text>{e.name}</Text>
+                        <Text>{e.message}</Text>
+                    </View>
+                );
+            }
         }
-        return (
-            <ListView
-                dataSource={this.state.dataSource}
-                renderRow={this.renderFriends}
-                style={styles.listView}
-            />
-        )
     }
 }
 
@@ -127,8 +148,22 @@ const styles = StyleSheet.create({
 
 function select(store) {
     return {
-        user: store.userStore.user
+        page: store.mainStore.status,
+        content: store.friendSearchStore.content,
+        type: store.friendSearchStore.type,
     }
 }
 
-export default connect(select)(FriendSearch);
+function mapDispatchToProps(dispatch) {
+    return {
+        actions: bindActionCreators(actionCreators, dispatch)
+    };
+}
+
+// <ListView
+//    dataSource={this.state.dataSource}
+//    renderRow={this.renderFriends}
+//    style={styles.listView}
+// />
+
+export default connect(select, mapDispatchToProps)(FriendSearch);

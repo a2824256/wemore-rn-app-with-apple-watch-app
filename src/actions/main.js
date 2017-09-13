@@ -77,8 +77,7 @@ export function searchFriend(name = null) {
                 if (responseData.status) {
                     //TODO
                     //登录成功
-                    Alert.alert(responseData.reason);
-                    dispatch({'type': TYPES.FRIEND_SEARCHED, user: responseData.user_info});
+                    dispatch({'type': TYPES.FRIEND_SEARCHED, content: responseData});
                     return;
                 }
                 //登录失败

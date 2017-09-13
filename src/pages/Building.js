@@ -13,7 +13,6 @@ class Building extends Component {
         return (
             <View style={{flex:1}}>
                 <Image
-                    // resizeMode={Image.resizeMode.contain}
                     source={buildpic}
                     style={{width:width,height:height}}
                     ></Image>
