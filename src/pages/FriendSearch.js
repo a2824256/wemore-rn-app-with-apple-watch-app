@@ -7,13 +7,14 @@ import {
     StyleSheet,
     Image,
     ListView,
-    Alert
+    Alert,
+    TouchableHighlight
 } from 'react-native';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as actionCreators from '../actions/main';
+import * as URL from '../configs/urlManage';
 
-// import * as URL from '../configs/urlManage';
 
 class FriendSearch extends Component {
     constructor(props) {
@@ -25,22 +26,9 @@ class FriendSearch extends Component {
             }),
             loaded: false,
         };
-        // this.fetchData = this.fetchData.bind(this);
+        // this._sendRequest = this._sendRequest.bind(this);
     }
 
-    // fetchData() {
-    //     this.state.name = this.props.name;
-    //     let url = URL.SEARCH_USER_URL + this.state.name;
-    //     fetch(url)
-    //         .then((response) => response.json())
-    //         .then((responseData) => {
-    //         Alert.alert(responseData.list.toString());
-    //             // this.setState({
-    //             //     dataSource: this.state.dataSource.cloneWithRows(responseData.list),
-    //             //     loaded: true,
-    //             // });
-    //         });
-    // }
 
     renderLoadingView() {
         return (
@@ -53,11 +41,34 @@ class FriendSearch extends Component {
         );
     }
 
-    // componentDidMount() {
-    //     this.fetchData();
-    // }
 
     renderFriends(friends) {
+        function fuc(uid){
+            let url = URL.SEND_FRIEND_REQUEST;
+            let formData = new FormData();
+            formData.append("uid", uid);
+            formData.append("rid", friends.id);
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'multipart/form-data',
+                },
+                body: formData
+            })
+                .then((response) => response.json())
+                .then((responseData) => {
+                    if (responseData.status) {
+                        Alert.alert('提示',responseData.reason);
+                        return;
+                    } else {
+                        Alert.alert('提示',responseData.reason);
+                        return;
+                    }
+                }).catch((e) => {
+                Alert.alert('错误提示',"发生错误",e.message);
+            });
+        }
         return (
             <View>
                 <View style={styles.container}>
@@ -68,6 +79,11 @@ class FriendSearch extends Component {
                     <View style={styles.rightContainer}>
                         <View style={{marginLeft: 30}}><Text style={styles.name}>{friends.name}</Text></View>
                     </View>
+                    <TouchableHighlight onPress={() => {fuc(this.props.user.id)}} underlayColor="#fff">
+                        <View style={styles.add_friend_button}>
+                            <Text style={{color: '#fff'}}>添加好友</Text>
+                        </View>
+                    </TouchableHighlight>
                 </View>
                 <View>
                     <View style={{height: 0.5, backgroundColor: '#959595'}}/>
@@ -86,14 +102,14 @@ class FriendSearch extends Component {
                     return (
                         <ListView
                             dataSource={this.props.content}
-                            renderRow={this.renderFriends}
+                            renderRow={this.renderFriends.bind(this)}
                             style={styles.listView}
                         />
                     );
                 } else {
                     return (
                         <View style={{flex: 1}}>
-                            <View style={{height:100}}></View>
+                            <View style={{height: 100}}></View>
                             <View style={{justifyContent: 'center', alignItems: 'center',}}><Text>没有找到相关用户</Text></View>
                         </View>
                     )
@@ -142,8 +158,17 @@ const styles = StyleSheet.create({
         marginTop: 10
     },
     listView: {
-        paddingTop: 20,
+        // paddingTop: 20,
     },
+    add_friend_button: {
+        borderColor: '#00ab8f',
+        borderWidth: 1,
+        borderRadius: 5,
+        backgroundColor: '#00ab8f',
+        height: 30,
+        justifyContent: 'center',
+        marginRight: 10
+    }
 });
 
 function select(store) {
@@ -151,6 +176,7 @@ function select(store) {
         page: store.mainStore.status,
         content: store.friendSearchStore.content,
         type: store.friendSearchStore.type,
+        user: store.userStore.user,
     }
 }
 

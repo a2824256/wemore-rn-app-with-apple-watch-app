@@ -65,6 +65,7 @@ class AddFriends extends Component {
                         </TouchableHighlight>
                     </View>
                 </View>
+                <View style={{marginTop:10,height: 0.5, backgroundColor: '#959595'}}/>
                 <View style={{flex: 7}}>
                     <FS/>
                 </View>
