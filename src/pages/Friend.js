@@ -38,16 +38,20 @@ class Friend extends Component {
                             alignSelf: 'flex-start',
                             fontWeight: 'bold',
                             color: '#444444',
-                            marginLeft:10
+                            marginLeft: 10
                         }}>我的好友</Text>
                     </View>
-                    <View style={{flex: 4,flexDirection:'row'}}>
-                        <TouchableHighlight onPress={() => {this._press('add-friends')}} underlayColor="#fff">
+                    <View style={{flex: 4, flexDirection: 'row'}}>
+                        <TouchableHighlight onPress={() => {
+                            this._press('add-friends')
+                        }} underlayColor="#fff">
                             <View style={styles.add_friends_button}>
                                 <Text style={{color: '#fff', textAlign: 'center'}}>添加好友</Text>
                             </View>
                         </TouchableHighlight>
-                        <TouchableHighlight onPress={() => {this._press('friends-request')}} underlayColor="#fff">
+                        <TouchableHighlight onPress={() => {
+                            this._press('friend-request')
+                        }} underlayColor="#fff">
                             <View style={styles.add_friends_button}>
                                 <Text style={{color: '#fff', textAlign: 'center'}}>好友请求</Text>
                             </View>

@@ -101,6 +101,11 @@ export default function mainPage(state=initialState, action){
                 ...state,
                 status: 'add-friends',
             };
+        case TYPES.FRIEND_REQUEST:
+            return{
+                ...state,
+                status: 'friend-request',
+            };
         default:
             return state;
     }

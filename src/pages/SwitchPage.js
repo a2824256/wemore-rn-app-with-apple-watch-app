@@ -18,6 +18,7 @@ import Search from './Search';
 import TextPage from './TextPage';
 import Offical from './OfficalInfo';
 import AddFriends from './AddFriends';
+import FriendRequest from './FriendRequestList';
 
 class SwitchPage extends Component {
     constructor(props) {
@@ -97,6 +98,10 @@ class SwitchPage extends Component {
             case 'add-friends':
                 return (
                     <AddFriends/>
+                );
+            case 'friend-request':
+                return(
+                    <FriendRequest/>
                 );
             default:
                 return (

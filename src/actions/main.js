@@ -53,6 +53,9 @@ export function changePage(opt) {
             case 'add-friends':
                 dispatch({'type': TYPES.ADDFRIEND, page: opt});
                 break;
+            case 'friend-request':
+                dispatch({'type': TYPES.FRIEND_REQUEST, page: opt});
+                break;
         }
         return;
     }

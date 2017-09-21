@@ -16,14 +16,14 @@ import * as actionCreators from '../actions/main';
 import * as URL from '../configs/urlManage';
 
 
-class FriendSearch extends Component {
+class FriendRequestList extends Component {
     constructor(props) {
         super(props);
         this.state = {
             name: null,
-            // dataSource: new ListView.DataSource({
-            //     rowHasChanged: (row1, row2) => row1 !== row2,
-            // }),
+            dataSource: new ListView.DataSource({
+                rowHasChanged: (row1, row2) => row1 !== row2,
+            }),
             loaded: false,
         };
         // this._sendRequest = this._sendRequest.bind(this);
@@ -41,34 +41,23 @@ class FriendSearch extends Component {
         );
     }
 
+    componentDidMount() {
+        this.fetchData();
+    }
+
+    fetchData() {
+        let url = URL.FRIEND_REQUEST_LIST + '&id=' + this.props.user.id
+        fetch(url)
+            .then((response) => response.json())
+            .then((responseData) => {
+                this.setState({
+                    dataSource: this.state.dataSource.cloneWithRows(responseData.list),
+                    loaded: true,
+                });
+            });
+    }
 
     renderFriends(friends) {
-        function fuc(uid){
-            let url = URL.SEND_FRIEND_REQUEST;
-            let formData = new FormData();
-            formData.append("uid", uid);
-            formData.append("rid", friends.id);
-            fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'multipart/form-data',
-                },
-                body: formData
-            })
-                .then((response) => response.json())
-                .then((responseData) => {
-                    if (responseData.status) {
-                        Alert.alert('提示',responseData.reason);
-                        return;
-                    } else {
-                        Alert.alert('提示',responseData.reason);
-                        return;
-                    }
-                }).catch((e) => {
-                Alert.alert('错误提示',"发生错误",e.message);
-            });
-        }
         return (
             <View>
                 <View style={styles.container}>
@@ -79,9 +68,9 @@ class FriendSearch extends Component {
                     <View style={styles.rightContainer}>
                         <View style={{marginLeft: 30}}><Text style={styles.name}>{friends.name}</Text></View>
                     </View>
-                    <TouchableHighlight onPress={() => {fuc(this.props.user.id)}} underlayColor="#fff">
+                    <TouchableHighlight  underlayColor="#fff">
                         <View style={styles.add_friend_button}>
-                            <Text style={{color: '#fff'}}>添加好友</Text>
+                            <Text style={{color: '#fff'}}>接受请求</Text>
                         </View>
                     </TouchableHighlight>
                 </View>
@@ -94,17 +83,25 @@ class FriendSearch extends Component {
 
     render() {
 
-        if (this.props.type == 'loading') {
+        if (!this.state.loaded) {
             return this.renderLoadingView();
         } else {
             try {
-                if (this.props.content._cachedRowCount > 0) {
+                if (this.state.dataSource._cachedRowCount > 0) {
                     return (
-                        <ListView
-                            dataSource={this.props.content}
-                            renderRow={this.renderFriends.bind(this)}
-                            style={styles.listView}
-                        />
+                        <View style={{flex:1,flexDirection:'column'}}>
+                            <View style={{flex:1,justifyContent: 'center'}}>
+                                <Text style={{textAlign:'center',color:'#565656',fontSize:20}}>好友请求</Text>
+                            </View>
+                            <View style={{height: 0.5, backgroundColor: '#2e2e2e'}}/>
+                            <View style={{flex:9}}>
+                                <ListView
+                                    dataSource={this.state.dataSource}
+                                    renderRow={this.renderFriends.bind(this)}
+                                    style={styles.listView}
+                                />
+                            </View>
+                        </View>
                     );
                 } else {
                     return (
@@ -158,7 +155,7 @@ const styles = StyleSheet.create({
         marginTop: 10
     },
     listView: {
-        // paddingTop: 20,
+        // flex: 9,
     },
     add_friend_button: {
         borderColor: '#00ab8f',
@@ -174,9 +171,7 @@ const styles = StyleSheet.create({
 function select(store) {
     return {
         page: store.mainStore.status,
-        content: store.friendSearchStore.content,
-        type: store.friendSearchStore.type,
-        user: store.userStore.user,
+        user: store.userStore.user
     }
 }
 
@@ -192,4 +187,4 @@ function mapDispatchToProps(dispatch) {
 //    style={styles.listView}
 // />
 
-export default connect(select, mapDispatchToProps)(FriendSearch);
+export default connect(select, mapDispatchToProps)(FriendRequestList);

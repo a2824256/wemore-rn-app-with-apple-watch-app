@@ -35,3 +35,4 @@ export const BOTTOM_OPEN = 'BOTTOM_OPEN';
 // for friendSearch
 export const FRIEND_SEARCHING = 'FRIEND_SEARCHING';
 export const FRIEND_SEARCHED = 'FRIEND_SEARCHED';
+export const FRIEND_REQUEST = 'FRIEND_REQUEST';
