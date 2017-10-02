@@ -91,6 +91,74 @@ export function searchFriend(name = null) {
     }
 }
 
+export function acceptFsRequest(id) {
+    return (dispatch) => {
+        dispatch({'type': TYPES.REQ_LOADING});
+        let url = URL.ACCEPT_FRIEND_REQUEST;
+        let formData = new FormData();
+        formData.append("id", id);
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'multipart/form-data',
+            },
+            body: formData
+        })
+            .then((response) => response.json())
+            .then((responseData) => {
+                if (responseData.status) {
+                    //TODO
+                    //登录成功
+                    if(responseData.list.length == 0){
+                        dispatch({'type': TYPES.REQ_NULL});
+                    }else{
+                        dispatch({'type': TYPES.REQ_LIST, content: responseData});
+                    }
+                    return;
+                }
+                //登录失败
+                Alert.alert("加载失败");
+            }).catch((e) => {
+            Alert.alert(e.message);
+        });
+    }
+}
+
+export function fetchReqData(id) {
+    return (dispatch) => {
+        dispatch({'type': TYPES.REQ_LOADING});
+        let url = URL.FRIEND_REQUEST_LIST
+        let formData = new FormData();
+        formData.append("id", id);
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'multipart/form-data',
+            },
+            body: formData
+        })
+            .then((response) => response.json())
+            .then((responseData) => {
+                if (responseData.status) {
+                    //TODO
+                    //登录成功
+                    if(responseData.list.length == 0){
+                        dispatch({'type': TYPES.REQ_NULL});
+                    }else{
+                        dispatch({'type': TYPES.REQ_LIST, content: responseData});
+                    }
+                    return;
+                }
+                //登录失败
+                Alert.alert("加载失败");
+            }).catch((e) => {
+            Alert.alert(e.message);
+        });
+    }
+}
+
 export function searchContent(opt) {
     return (dispatch) => {
         dispatch({'type': TYPES.SEARCH, content: opt});

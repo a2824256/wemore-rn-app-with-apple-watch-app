@@ -29,7 +29,7 @@ export default function configureStore(onComplete: () => void) {
     let opt = {
         storage: AsyncStorage,
         transform: [],
-        blacklist: ['mainStore', 'sideBarStore','bottomStore'],
+        blacklist: ['mainStore', 'sideBarStore','bottomStore','friendReq','friendSearchStore'],
         //'userStore',
     };
     persistStore(store, opt, onComplete);

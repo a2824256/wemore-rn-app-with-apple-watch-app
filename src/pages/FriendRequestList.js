@@ -13,7 +13,6 @@ import {
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as actionCreators from '../actions/main';
-import * as URL from '../configs/urlManage';
 
 
 class FriendRequestList extends Component {
@@ -21,14 +20,14 @@ class FriendRequestList extends Component {
         super(props);
         this.state = {
             name: null,
-            dataSource: new ListView.DataSource({
-                rowHasChanged: (row1, row2) => row1 !== row2,
-            }),
             loaded: false,
         };
-        // this._sendRequest = this._sendRequest.bind(this);
     }
 
+
+    accept_friend_request(id) {
+        this.props.actions.acceptFsRequest(id);
+    }
 
     renderLoadingView() {
         return (
@@ -45,16 +44,9 @@ class FriendRequestList extends Component {
         this.fetchData();
     }
 
+
     fetchData() {
-        let url = URL.FRIEND_REQUEST_LIST + '&id=' + this.props.user.id
-        fetch(url)
-            .then((response) => response.json())
-            .then((responseData) => {
-                this.setState({
-                    dataSource: this.state.dataSource.cloneWithRows(responseData.list),
-                    loaded: true,
-                });
-            });
+        this.props.actions.fetchReqData(this.props.user.id);
     }
 
     renderFriends(friends) {
@@ -68,7 +60,9 @@ class FriendRequestList extends Component {
                     <View style={styles.rightContainer}>
                         <View style={{marginLeft: 30}}><Text style={styles.name}>{friends.name}</Text></View>
                     </View>
-                    <TouchableHighlight  underlayColor="#fff">
+                    <TouchableHighlight underlayColor="#fff" onPress={() => {
+                        this.accept_friend_request(friends.id)
+                    }}>
                         <View style={styles.add_friend_button}>
                             <Text style={{color: '#fff'}}>接受请求</Text>
                         </View>
@@ -82,21 +76,28 @@ class FriendRequestList extends Component {
     }
 
     render() {
-
-        if (!this.state.loaded) {
+        if (this.props.status == 'loading') {
             return this.renderLoadingView();
+        } else if (this.props.status == 'null') {
+            return (
+                <View style={{flex: 1}}>
+                    <View style={{height: 100}}></View>
+                    <View style={{justifyContent: 'center', alignItems: 'center',}}><Text>没有请求</Text></View>
+                </View>
+            )
         } else {
             try {
-                if (this.state.dataSource._cachedRowCount > 0) {
+                // Alert.alert(JSON.stringify(this.props.content));
+                if (this.props.content._cachedRowCount > 0) {
                     return (
-                        <View style={{flex:1,flexDirection:'column'}}>
-                            <View style={{flex:1,justifyContent: 'center'}}>
-                                <Text style={{textAlign:'center',color:'#565656',fontSize:20}}>好友请求</Text>
+                        <View style={{flex: 1, flexDirection: 'column'}}>
+                            <View style={{flex: 1, justifyContent: 'center'}}>
+                                <Text style={{textAlign: 'center', color: '#565656', fontSize: 20}}>好友请求</Text>
                             </View>
                             <View style={{height: 0.5, backgroundColor: '#2e2e2e'}}/>
-                            <View style={{flex:9}}>
+                            <View style={{flex: 9}}>
                                 <ListView
-                                    dataSource={this.state.dataSource}
+                                    dataSource={this.props.content}
                                     renderRow={this.renderFriends.bind(this)}
                                     style={styles.listView}
                                 />
@@ -107,7 +108,7 @@ class FriendRequestList extends Component {
                     return (
                         <View style={{flex: 1}}>
                             <View style={{height: 100}}></View>
-                            <View style={{justifyContent: 'center', alignItems: 'center',}}><Text>没有找到相关用户</Text></View>
+                            <View style={{justifyContent: 'center', alignItems: 'center',}}><Text>没有请求</Text></View>
                         </View>
                     )
                 }
@@ -171,7 +172,9 @@ const styles = StyleSheet.create({
 function select(store) {
     return {
         page: store.mainStore.status,
-        user: store.userStore.user
+        user: store.userStore.user,
+        status: store.friendReq.type,
+        content: store.friendReq.content,
     }
 }
 
@@ -181,10 +184,5 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-// <ListView
-//    dataSource={this.state.dataSource}
-//    renderRow={this.renderFriends}
-//    style={styles.listView}
-// />
 
 export default connect(select, mapDispatchToProps)(FriendRequestList);

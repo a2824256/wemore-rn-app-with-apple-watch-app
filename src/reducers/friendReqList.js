@@ -11,24 +11,30 @@ const initialState = {
     }),
 };
 
-export default function friendSearch(state = initialState, action) {
+export default function friendReqList(state = initialState, action) {
 
     switch (action.type) {
-        case TYPES.FRIEND_SEARCHING:
+        case TYPES.REQ_LOADING:
             return {
                 ...state,
                 type: 'loading',
             };
 
-        case TYPES.FRIEND_SEARCHED:
+        case TYPES.REQ_LIST:
             let temp = new ListView.DataSource({
                 rowHasChanged: (row1, row2) => row1 !== row2,
             });
             temp = temp.cloneWithRows(action.content.list);
             return {
                 ...state,
-                type: 'searched',
+                type: 'loaded',
                 content: temp,
+            };
+
+        case TYPES.REQ_NULL:
+            return {
+                ...state,
+                type: 'null',
             };
 
         default:

@@ -36,3 +36,8 @@ export const BOTTOM_OPEN = 'BOTTOM_OPEN';
 export const FRIEND_SEARCHING = 'FRIEND_SEARCHING';
 export const FRIEND_SEARCHED = 'FRIEND_SEARCHED';
 export const FRIEND_REQUEST = 'FRIEND_REQUEST';
+
+// for friendRequestList
+export const REQ_LIST = 'REQ_LIST';
+export const REQ_LOADING = 'REQ_LOADING';
+export const REQ_NULL = 'REQ_NULL';
