@@ -41,34 +41,37 @@ class FriendSearch extends Component {
         );
     }
 
+    fuc(uid, rid) {
+        let url = URL.SEND_FRIEND_REQUEST;
+        let formData = new FormData();
+        if(uid == rid){
+            Alert.alert("无法添加自己为好友!");
+        }
+        formData.append("uid", uid);
+        formData.append("rid", rid);
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'multipart/form-data',
+            },
+            body: formData
+        })
+            .then((response) => response.json())
+            .then((responseData) => {
+                if (responseData.status) {
+                    Alert.alert('提示', responseData.reason.toString());
+                    return;
+                } else {
+                    Alert.alert('提示', responseData.reason.toString());
+                    return;
+                }
+            }).catch((e) => {
+            Alert.alert('错误提示', "发生错误", e.message);
+        });
+    }
 
     renderFriends(friends) {
-        function fuc(uid){
-            let url = URL.SEND_FRIEND_REQUEST;
-            let formData = new FormData();
-            formData.append("uid", uid);
-            formData.append("rid", friends.id);
-            fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'multipart/form-data',
-                },
-                body: formData
-            })
-                .then((response) => response.json())
-                .then((responseData) => {
-                    if (responseData.status) {
-                        Alert.alert('提示',responseData.reason);
-                        return;
-                    } else {
-                        Alert.alert('提示',responseData.reason);
-                        return;
-                    }
-                }).catch((e) => {
-                Alert.alert('错误提示',"发生错误",e.message);
-            });
-        }
         return (
             <View>
                 <View style={styles.container}>
@@ -79,7 +82,9 @@ class FriendSearch extends Component {
                     <View style={styles.rightContainer}>
                         <View style={{marginLeft: 30}}><Text style={styles.name}>{friends.name}</Text></View>
                     </View>
-                    <TouchableHighlight onPress={() => {fuc(this.props.user.id)}} underlayColor="#fff">
+                    <TouchableHighlight onPress={() => {
+                        this.fuc(this.props.user.id, friends.id)
+                    }} underlayColor="#fff">
                         <View style={styles.add_friend_button}>
                             <Text style={{color: '#fff'}}>添加好友</Text>
                         </View>
@@ -93,7 +98,6 @@ class FriendSearch extends Component {
     }
 
     render() {
-
         if (this.props.type == 'loading') {
             return this.renderLoadingView();
         } else {

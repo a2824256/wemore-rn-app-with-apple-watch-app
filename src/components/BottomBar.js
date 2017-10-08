@@ -21,6 +21,10 @@ class BottomBar extends Component {
         this.props.actions.changeBottom(o);
     }
 
+    _press2change(o) {
+        this.props.actions.changePage(o);
+    }
+
     render() {
         switch (this.props.status) {
             case 'close':
@@ -49,24 +53,34 @@ class BottomBar extends Component {
                                 justifyContent: 'center',
                                 marginTop: 10
                             }}>
+                                <TouchableHighlight onPress={() => {
+                                    this._press2change('world-game')
+                                }} underlayColor="#ffffff">
                                 <View style={{marginRight: 30, flexDirection: 'column'}}>
                                     <Image source={quick} style={{height: width / 6, width: width / 6}}/>
                                     <View style={{alignItems: 'center', justifyContent: 'center'}}>
                                         <Text style={styles.text}>快速游戏</Text>
                                     </View>
                                 </View>
+                                </TouchableHighlight>
+                                <TouchableHighlight underlayColor="#ffffff">
                                 <View style={{flexDirection: 'column'}}>
                                     <Image source={sao} style={{height: width / 6, width: width / 6}}/>
                                     <View style={{alignItems: 'center', justifyContent: 'center'}}>
                                         <Text style={styles.text}>扫一扫</Text>
                                     </View>
                                 </View>
+                                </TouchableHighlight>
+                                <TouchableHighlight onPress={() => {
+                                    this._press2change('userinfo')
+                                }} underlayColor="#ffffff">
                                 <View style={{marginLeft: 30, flexDirection: 'column'}}>
                                     <Image source={qrcode} style={{height: width / 6, width: width / 6}}/>
                                     <View style={{alignItems: 'center', justifyContent: 'center'}}>
                                         <Text style={styles.text}>我的名片</Text>
                                     </View>
                                 </View>
+                                </TouchableHighlight>
                             </View>
                             <View style={{
                                 alignItems: 'center',

@@ -80,9 +80,13 @@ class FriendRequestList extends Component {
             return this.renderLoadingView();
         } else if (this.props.status == 'null') {
             return (
-                <View style={{flex: 1}}>
-                    <View style={{height: 100}}></View>
-                    <View style={{justifyContent: 'center', alignItems: 'center',}}><Text>没有请求</Text></View>
+                <View style={{flex: 1, flexDirection: 'column'}}>
+                    <View style={{flex: 1, justifyContent: 'center'}}>
+                        <Text style={{textAlign: 'center', color: '#565656', fontSize: 20}}>没有请求</Text>
+                    </View>
+                    <View style={{height: 0.5, backgroundColor: '#2e2e2e'}}/>
+                    <View style={{flex: 9}}>
+                    </View>
                 </View>
             )
         } else {

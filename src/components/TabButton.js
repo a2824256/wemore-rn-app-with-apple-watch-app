@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        height: 30
+        height: 30,
     },
     text: {
         color: '#cacabc',
@@ -61,6 +61,11 @@ const styles = StyleSheet.create({
     },
     touch_high: {
         marginTop: 20,
+        // backgroundColor:'#5db6ff',
+        height:54,
+        width:50,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 })
 

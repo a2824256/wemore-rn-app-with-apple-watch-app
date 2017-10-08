@@ -33,11 +33,60 @@ export function logIn(opt) {
                     return;
                 }
                 //登录失败
-                Alert.alert(responseData.info);
+                Alert.alert(responseData.reason);
             }).catch((e) => {
                 Alert.alert(e.message);
                 dispatch({'type': TYPES.LOGGED_ERROR, error: e});
             });
+    }
+}
+
+export function goBackToLogin(){
+    return (dispatch) => {
+        dispatch({'type': TYPES.LOGGED_OUT});
+        return;
+    }
+}
+
+export function regIn(opt) {
+    return (dispatch) => {
+        let url = URL.REGISTER_URL;
+        let formData = new FormData();
+        formData.append("acc",opt.acc);
+        formData.append("pwd",opt.pwd);
+        formData.append("name",opt.name);
+        formData.append("team",opt.team);
+        // Alert.alert(url);
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'multipart/form-data',
+            },
+            body: formData
+        })
+            .then((response) => response.json())
+            .then((responseData) => {
+                if (responseData.status) {
+                    //TODO
+                    //注册成功
+                    Alert.alert(responseData.reason);
+                    dispatch({'type': TYPES.LOGGED_OUT});
+                    return;
+                }
+                //注册失败
+                Alert.alert(responseData.reason);
+            }).catch((e) => {
+            Alert.alert(e.message);
+        });
+    }
+}
+
+
+export function register(){
+    return (dispatch) =>{
+        dispatch({'type': TYPES.REGISTER});
+        return;
     }
 }
 

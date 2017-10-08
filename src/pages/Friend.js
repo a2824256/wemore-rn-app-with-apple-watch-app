@@ -31,14 +31,14 @@ class Friend extends Component {
                         <Image source={friend}
                                style={styles.image}></Image>
                     </View>
-                    <View style={{flex: 5, justifyContent: 'center'}}>
+                    <View style={{flex: 4, justifyContent: 'center'}}>
                         <Text style={{
-                            fontSize: 20,
+                            fontSize: 16,
                             marginBottom: 8,
                             alignSelf: 'flex-start',
                             fontWeight: 'bold',
                             color: '#444444',
-                            marginLeft: 10
+                            marginLeft: 8
                         }}>我的好友</Text>
                     </View>
                     <View style={{flex: 4, flexDirection: 'row'}}>

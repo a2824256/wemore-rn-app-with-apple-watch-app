@@ -100,8 +100,8 @@ const styles = StyleSheet.create({
     },
     picture: {
         backgroundColor: 'rgba(0,0,0,0)',
-        height: 65,
-        width: 175,
+        height: 60,
+        width: 155,
 
     },
     box: {

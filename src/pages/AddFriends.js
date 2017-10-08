@@ -42,7 +42,7 @@ class AddFriends extends Component {
                 </View>
                 <View style={{flex: 2, flexDirection: 'row'}}>
                     <View style={{flex: 1}}/>
-                    <View style={{flex: 5}}>
+                    <View style={{flex: 4}}>
                         <TextInput style={styles.textInput}
                                    placeholder="输入关键字搜索" underlineColorAndroid='transparent'
                                    placeholderTextColor="#959595"

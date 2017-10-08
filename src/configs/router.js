@@ -10,6 +10,7 @@ import MainPage from '../pages/Main';
 import WorldGame from '../pages/WorldGame';
 import Building from '../pages/Building';
 import SearchPage from  '../pages/Search';
+import RegisterPage from '../pages/Register';
 
 
 // Config
@@ -56,6 +57,14 @@ class Router {
         this.push(props, {
             page: MainPage,
             name: 'main-page',
+            sceneConfig: customFloatFromRight
+        })
+    }
+
+    toRegister(props){
+        this.push(props, {
+            page: RegisterPage,
+            name: 'register-page',
             sceneConfig: customFloatFromRight
         })
     }

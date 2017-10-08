@@ -93,7 +93,7 @@ export function searchFriend(name = null) {
 
 export function acceptFsRequest(id) {
     return (dispatch) => {
-        dispatch({'type': TYPES.REQ_LOADING});
+        // dispatch({'type': TYPES.REQ_LOADING});
         let url = URL.ACCEPT_FRIEND_REQUEST;
         let formData = new FormData();
         formData.append("id", id);

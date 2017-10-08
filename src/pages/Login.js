@@ -1,10 +1,10 @@
 'use strict';
 
 import React, {Component, PropTypes} from 'react';
-import {View, Text, TextInput, StyleSheet, Button, Alert, TouchableHighlight, Image} from 'react-native';
+import {View, Text, TextInput, StyleSheet, ScrollView, Alert, TouchableHighlight, Image} from 'react-native';
 import {connect} from 'react-redux';
 import NavBar from '../components/NavBar';
-import {logIn} from '../actions/user';
+import {logIn, register} from '../actions/user';
 
 //图片地址
 const PIC_URL = 'http://school.coolmoresever.com/images/pic.jpeg';
@@ -26,6 +26,11 @@ class LoginPage extends Component {
             this.toMain();
             return false;
         }
+        if (nextProps.isRegister != this.props.isRegister && nextProps.isRegister === true) {
+            this.toRegister();
+            return false;
+        }
+
         if (nextProps.status == 'doing') {
             //loggining
             return false;
@@ -54,19 +59,28 @@ class LoginPage extends Component {
         this.props.dispatch(logIn(opt));
     }
 
+    handleRegister = () => {
+        this.props.dispatch(register());
+    }
+
+    toRegister = () => {
+        const {router} = this.props;
+        router.toRegister();
+    }
+
     render() {
         var pic_url = PIC_URL;
         var title = '登录';
         return (
-            <View style={{flex: 1,backgroundColor: '#F5F5F5'}}>
+            <ScrollView style={{flex: 1, backgroundColor: '#F5F5F5'}}>
                 <NavBar title={title}/>
                 <Image
                     resizeMode={Image.resizeMode.stretch}
                     style={styles.thumbnail}
-                    source={{uri:pic_url}}
+                    source={{uri: pic_url}}
                 />
-                <View style={{height:1,backgroundColor:'#DCDCDC'}}/>
-                <View style={{flex:1}}>
+                <View style={{height: 1, backgroundColor: '#DCDCDC'}}/>
+                <View style={{flex: 1}}>
                     <View style={styles.content}>
                         <TextInput
                             style={styles.TextInput}
@@ -76,7 +90,7 @@ class LoginPage extends Component {
                             onChangeText={(account) => this.setState({account})}
                             underlineColorAndroid='transparent'
                         />
-                        <View style={{height:2}}/>
+                        <View style={{height: 2}}/>
                         <TextInput
                             secureTextEntry={true}
                             style={styles.TextInput}
@@ -86,19 +100,22 @@ class LoginPage extends Component {
                             onChangeText={(password) => this.setState({password})}
                             underlineColorAndroid='transparent'
                         />
-                        <TouchableHighlight onPress={this.handleLogin} underlayColor="#52ABFF" style={styles.button}>
+                        <TouchableHighlight onPress={this.handleLogin} underlayColor="#52ABFF" style={styles.login_button}>
                             <Text style={{color: '#fff'}}>登录</Text>
+                        </TouchableHighlight>
+                        <TouchableHighlight onPress={this.handleRegister} underlayColor="#52ABFF" style={styles.button}>
+                            <Text style={{color: '#fff'}}>注册</Text>
                         </TouchableHighlight>
                     </View>
                 </View>
                 <View style={styles.Copyright}>
-                    <View style={{flex:4}}>
+                    <View style={{flex: 4}}>
                     </View>
-                    <View style={{flex:1}}>
+                    <View style={{flex: 1}}>
                         <Text>copyright (c) 2017 by Alex Leung</Text>
                     </View>
                 </View>
-            </View>
+            </ScrollView>
         )
     }
 }
@@ -107,12 +124,11 @@ class LoginPage extends Component {
 const styles = StyleSheet.create({
     pic: {
         padding: 100,
-        backgroundColor: '#99ffcc'
+        backgroundColor: '#99ffcc',
     },
     content: {
         marginTop: 10,
         height: 150,
-        // backgroundColor: '#FAFAFA'
     },
     font: {
         padding: 10,
@@ -123,13 +139,13 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     Copyright: {
-        flex: 1,
+        marginTop: 100,
         alignItems: 'center',
         // backgroundColor: '#4169E1'
     },
     button: {
         alignItems: 'center',
-        marginTop: 10,
+        marginTop: 20,
         padding: 10,
         marginLeft: 40,
         marginRight: 40,
@@ -138,8 +154,19 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         backgroundColor: '#63B8FF'
     },
+    login_button: {
+        alignItems: 'center',
+        marginTop: 20,
+        padding: 10,
+        marginLeft: 40,
+        marginRight: 40,
+        borderColor: '#26c474',
+        borderWidth: 1,
+        borderRadius: 5,
+        backgroundColor: '#26c474'
+    },
     thumbnail: {
-        height: 250,
+        height: 220,
     },
     bottom: {
         padding: 10,
@@ -150,6 +177,7 @@ const styles = StyleSheet.create({
 function select(store) {
     return {
         isLoggedIn: store.userStore.isLoggedIn,
+        isRegister: store.userStore.isRegister,
         user: store.userStore.user,
         status: store.userStore.status,
     }

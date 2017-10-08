@@ -103,7 +103,7 @@ class Game extends Component {
                             <TouchableHighlight onPress={() => {
                                 this._press('sucker')
                             }}>
-                                <Image style={{height: 70, width: 170, justifyContent: 'center', alignItems: 'center'}}
+                                <Image style={{height: 50, width: 150, justifyContent: 'center', alignItems: 'center'}}
                                        source={bg_1}/>
                             </TouchableHighlight>
                         </View>
@@ -111,7 +111,7 @@ class Game extends Component {
                             <TouchableHighlight onPress={() => {
                                 this._press('props')
                             }}>
-                                <Image style={{height: 70, width: 170, justifyContent: 'center', alignItems: 'center'}}
+                                <Image style={{height: 50, width: 150, justifyContent: 'center', alignItems: 'center'}}
                                        source={bg_2}/>
                             </TouchableHighlight>
                         </View>

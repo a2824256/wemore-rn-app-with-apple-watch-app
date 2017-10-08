@@ -4,6 +4,7 @@ import * as TYPES from '../actions/types';
 
 const initialState = {
     isLoggedIn: false,
+    isRegister: false,
     user: {},
     status: null,
 };
@@ -14,13 +15,15 @@ export default function user(state=initialState, action){
         case TYPES.LOGGED_DOING:
             return {
                 ...state,
-                status: 'doing'
+                isRegister: false,
+                status: 'doing',
             };
 
         case TYPES.LOGGED_IN:
             return {
                 ...state,
                 isLoggedIn: true,
+                isRegister: false,
                 user: action.user,
                 status: 'done'
             };
@@ -29,6 +32,7 @@ export default function user(state=initialState, action){
             return {
                 ...state,
                 isLoggedIn: false,
+                isRegister: false,
                 user: {},
                 status: null
             };
@@ -36,10 +40,19 @@ export default function user(state=initialState, action){
             return {
                 ...state,
                 isLoggedIn: false,
+                isRegister: false,
                 user: {},
                 status: null
             }
 
+        case TYPES.REGISTER:
+            return {
+                ...state,
+                isLoggedIn: false,
+                isRegister: true,
+                user: {},
+                status: null
+            }
         default:
             return state;
     }

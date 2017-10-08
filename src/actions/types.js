@@ -8,6 +8,7 @@ export const LOGGED_IN = 'LOGGED_IN';
 export const LOGGED_OUT = 'LOGGED_OUT';
 export const LOGGED_ERROR = 'LOGGED_ERROR';
 export const LOGGED_DOING = 'LOGGED_DOING';
+export const REGISTER = 'REGISTER';
 
 // for main page
 export const MAIN_GAME = 'MAIN_GAME';

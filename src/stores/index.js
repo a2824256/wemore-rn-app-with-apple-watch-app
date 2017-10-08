@@ -17,7 +17,7 @@ const logger = store => next => action => {
 }
 
 let middlewares = [
-    logger,
+    // logger,
     thunk
 ];
 
@@ -29,7 +29,7 @@ export default function configureStore(onComplete: () => void) {
     let opt = {
         storage: AsyncStorage,
         transform: [],
-        blacklist: ['mainStore', 'sideBarStore','bottomStore','friendReq','friendSearchStore'],
+        blacklist: ['userStore','mainStore', 'sideBarStore','bottomStore','friendReq','friendSearchStore'],
         //'userStore',
     };
     persistStore(store, opt, onComplete);

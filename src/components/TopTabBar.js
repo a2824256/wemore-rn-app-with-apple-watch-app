@@ -26,7 +26,7 @@ class TopTabBar extends Component {
         return (
             <View >
                 <View>
-                    <View style={{height: 20,backgroundColor:'#009999'}}/>
+                    <View style={{height: 10,backgroundColor:'#009999'}}/>
                 </View>
                 <View style={styles.row}>
                     <View style={{flex:2}}>
