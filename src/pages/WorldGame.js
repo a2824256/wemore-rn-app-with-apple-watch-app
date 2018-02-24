@@ -11,7 +11,7 @@ class WorldGame extends Component {
     }
 
     render() {
-        var url = 'http://148.coolmoresever.com/index.php?m=Home&c=Index&a=wemap&type=1&acc=' + this.props.user.acc;
+        var url = 'http://wemore.risplan.xyz/index.php?m=Home&c=Index&a=wemap&type=1&acc=' + this.props.user.acc;
         return (
             <View style={{flex:1}}>
                 <WebView style={styles.map} source={{uri:url,method:'GET'}} startInLoadingState={true} domStorageEnabled={true}

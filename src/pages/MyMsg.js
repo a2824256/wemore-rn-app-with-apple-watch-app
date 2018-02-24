@@ -17,7 +17,7 @@ class MyMsg extends Component {
     }
 
     render() {
-        var url = 'http://148.coolmoresever.com/index.php?m=Home&c=Index&a=mymsg&acc=' + this.props.user.acc;
+        var url = 'http://wemore.risplan.xyz/index.php?m=Home&c=Index&a=mymsg&acc=' + this.props.user.acc;
         return (
             <ScrollView style={{flex: 1, flexDirection: 'column'}}>
                 <View style={{flex: 1, flexDirection: 'row', marginTop: 10}}>

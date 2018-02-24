@@ -11,7 +11,7 @@ class Sucker extends Component {
     }
 
     render() {
-        var url = 'http://148.coolmoresever.com/index.php?m=Home&c=Index&a=sucker';
+        var url = 'http://wemore.risplan.xyz/index.php?m=Home&c=Index&a=sucker';
         return (
             <View style={{flex:1}}>
                 <WebView style={styles.map} source={{uri:url,method:'GET'}} startInLoadingState={true} domStorageEnabled={true}

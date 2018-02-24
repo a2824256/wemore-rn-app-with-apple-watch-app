@@ -14,9 +14,9 @@ export default class LifeSwiper extends Component {
     render(){
         return(
             <Swiper style={styles.wrapper} height={400} autoplay horizontal={false} showsPagination={false}>
-                <Spic pic='http://148.coolmoresever.com/Public/wemore/life1.jpeg' height={400} url='http://148.coolmoresever.com/index.php?m=Home&c=Index&a=lifeman&num=1'/>
-                <Spic pic='http://148.coolmoresever.com/Public/wemore/life2.jpeg' height={400} url='http://148.coolmoresever.com/index.php?m=Home&c=Index&a=lifeman&num=2'/>
-                <Spic pic='http://148.coolmoresever.com/Public/wemore/life3.jpeg' height={400} url='http://148.coolmoresever.com/index.php?m=Home&c=Index&a=lifeman&num=3'/>
+                <Spic pic='http://wemore.risplan.xyz/Public/wemore/life1.jpeg' height={400} url='http://wemore.risplan.xyz/index.php?m=Home&c=Index&a=lifeman&num=1'/>
+                <Spic pic='http://wemore.risplan.xyz/Public/wemore/life2.jpeg' height={400} url='http://wemore.risplan.xyz/index.php?m=Home&c=Index&a=lifeman&num=2'/>
+                <Spic pic='http://wemore.risplan.xyz/Public/wemore/life3.jpeg' height={400} url='http://wemore.risplan.xyz/index.php?m=Home&c=Index&a=lifeman&num=3'/>
             </Swiper>
         )
     }

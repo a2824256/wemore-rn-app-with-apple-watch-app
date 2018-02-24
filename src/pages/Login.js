@@ -7,7 +7,7 @@ import NavBar from '../components/NavBar';
 import {logIn, register} from '../actions/user';
 
 //图片地址
-const PIC_URL = 'http://school.coolmoresever.com/images/pic.jpeg';
+const PIC_URL = 'http://wemore.risplan.xyz/Public/wemore/pic.jpeg';
 
 class LoginPage extends Component {
 

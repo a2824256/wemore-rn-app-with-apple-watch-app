@@ -50,12 +50,12 @@ class Game extends Component {
         return (
             <ScrollView style={{backgroundColor: '#dfdfdf', flex: 1}}>
                 <Swiper style={styles.wrapper} height={200} autoplay>
-                    <Spic pic='http://148.coolmoresever.com/Public/wemore/lb1.jpg' height={250}
-                          url='http://148.coolmoresever.com/index.php?m=Home&c=Index&a=newsman&num=1'/>
-                    <Spic pic='http://148.coolmoresever.com/Public/wemore/lb2.jpg' height={250}
-                          url='http://148.coolmoresever.com/index.php?m=Home&c=Index&a=newsman&num=2'/>
-                    <Spic pic='http://148.coolmoresever.com/Public/wemore/lb3.jpg' height={250}
-                          url='http://148.coolmoresever.com/index.php?m=Home&c=Index&a=newsman&num=3'/>
+                    <Spic pic='http://wemore.risplan.xyz/Public/wemore/lb1.jpg' height={250}
+                          url='http://wemore.risplan.xyz/index.php?m=Home&c=Index&a=newsman&num=1'/>
+                    <Spic pic='http://wemore.risplan.xyz/Public/wemore/lb2.jpg' height={250}
+                          url='http://wemore.risplan.xyz/index.php?m=Home&c=Index&a=newsman&num=2'/>
+                    <Spic pic='http://wemore.risplan.xyz/Public/wemore/lb3.jpg' height={250}
+                          url='http://wemore.risplan.xyz/index.php?m=Home&c=Index&a=newsman&num=3'/>
                 </Swiper>
                 <View style={{flex: 1}}>
                     <View style={{height: 80, backgroundColor: '#fff', flexDirection: 'row'}}>
