@@ -15,7 +15,7 @@ class TimerController: WKInterfaceController {
   
   override func awake(withContext context: Any?) {
     super.awake(withContext: context)
-    let url = NSURL.init(string: "http://148.coolmoresever.com/index.php?m=Home&c=Index&a=we_time");
+    let url = NSURL.init(string: "http://wemore.risplan.xyz/index.php?m=Home&c=Index&a=we_time");
     let urlRequest:URLRequest = URLRequest(url:url as! URL);
     let session = URLSession.shared
     let dataTask = session.dataTask(with: urlRequest) { (data:Data?, response:URLResponse?, error:Error?) in

@@ -17,7 +17,7 @@ class TablerowController: WKInterfaceController {
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-      let url = NSURL.init(string: "http://148.coolmoresever.com/index.php?m=Home&c=Index&a=we_news");
+      let url = NSURL.init(string: "http://wemore.risplan.xyz/index.php?m=Home&c=Index&a=we_news");
       let urlRequest:URLRequest = URLRequest(url:url as! URL);
       let session = URLSession.shared
       let dataTask = session.dataTask(with: urlRequest) { (data:Data?, response:URLResponse?, error:Error?) in

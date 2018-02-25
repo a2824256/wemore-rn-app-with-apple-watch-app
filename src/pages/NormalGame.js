@@ -293,7 +293,7 @@ class NormalGame extends Component {
     }
 
     render() {
-        var url = 'http://wemore.risplan.xyz/index.php?m=Home&c=Index&a=normal&acc=' + this.props.user.acc;
+        var url = 'http://wemore.risplan.xyz/index.php?m=Home&c=Index&a=wemap_normal&acc=' + this.props.user.acc;
         return (
             <View style={{flex:1}}>
                 <WebView style={styles.map} source={{uri:url,method:'GET'}} startInLoadingState={true} domStorageEnabled={true}

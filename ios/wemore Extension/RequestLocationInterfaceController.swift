@@ -155,7 +155,7 @@ class RequestLocationInterfaceController: WKInterfaceController, CLLocationManag
       
       self.longitudeLabel.setText(String(lastLocationCoordinate.longitude))
       
-      let dz = "http://148.coolmoresever.com/index.php?m=Home&c=Index&a=we_points&longitude=" + String(lastLocationCoordinate.longitude) + "&latitude=" + String(lastLocationCoordinate.latitude)
+      let dz = "http://wemore.risplan.xyz/index.php?m=Home&c=Index&a=we_points&longitude=" + String(lastLocationCoordinate.longitude) + "&latitude=" + String(lastLocationCoordinate.latitude)
       
       let url = NSURL.init(string: dz);
       
