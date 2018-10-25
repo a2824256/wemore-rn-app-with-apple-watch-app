@@ -5,3 +5,6 @@
 2.修复图表显示异常<br/>
 3.修复BottomBar与ScrollView的冲突造成的显示问题<br/>
 4.更新react-native-side-menu到最新版<br/>
+
+# AppleWatch
+![image](https://github.com/a2824256/wemore-rn-app-with-apple-watch-app/blob/master/Applewatch.png)
